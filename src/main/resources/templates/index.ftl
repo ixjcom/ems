@@ -18,7 +18,7 @@
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element" id="current-env" env="daily"
-                         style="text-align: center;font-size: 18px;font-weight: 600; color: #fff;">艳玲的EMS
+                         style="text-align: center;font-size: 18px;font-weight: 600; color: #fff;">${emsSystemName}
                     </div>
                     <div class="logo-element">H</div>
                 </li>
@@ -30,14 +30,7 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <@sec.any name="test">
-                            <li><a href="adminRole/to-add" class="J_menuItem">addRole</a></li>
-                        </@sec.any>
-                        <@sec.any name="test1">
-                            <li><a href="adminRole/to-list" class="J_menuItem">roleList</a></li>
-                        </@sec.any>
-                        <li><a href="adminUser/to-add" class="J_menuItem">addAdminUser</a></li>
-                        <li><a href="adminUser/to-list" class="J_menuItem">userList</a></li>
+                        <li><a href="/user/to-list" class="J_menuItem">用户列表</a></li>
                     </ul>
                 </li>
             </ul>
@@ -109,7 +102,7 @@
                         class="fa fa fa-sign-out"></i>loginOut</a>
         </div>
         <div class="row J_mainContent" id="content-main">
-
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/index_sum" frameborder="0" data-id="" seamless></iframe>
         </div>
     </div>
 </div>
@@ -121,5 +114,6 @@
 <script src="/js/layer/layer.min.js"></script>
 <script src="/js/hplus.min.js?v=4.1.0"></script>
 <script type="text/javascript" src="/js/contabs.min.js"></script>
+<script src="/js/contabs.min.js"></script>
 <script src="/js/common.js"></script>
 </html>

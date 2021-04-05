@@ -12,6 +12,11 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping("index_sum")
+    public String indexSum(){
+        return "indexSum";
+    }
+
 
 
 }
