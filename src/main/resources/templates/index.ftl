@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ems</title>
     <link href="/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
@@ -26,11 +26,56 @@
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs"></i>
-                        <span class="nav-label">systemManager</span>
+                        <span class="nav-label">用户管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li><a href="/user/to-list" class="J_menuItem">用户列表</a></li>
+                        <li><a href="/user/to-list" class="J_menuItem">用户账号管理</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span class="nav-label">通知公告管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="/user/to-list" class="J_menuItem">公告管理</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span class="nav-label">柜员信息管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="/user/to-list" class="J_menuItem">柜员信息管理</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span class="nav-label">柜员业务管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="/user/to-list" class="J_menuItem">柜员业务管理</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span class="nav-label">数据统计</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="/user/to-list" class="J_menuItem">业务信息排名</a></li>
                     </ul>
                 </li>
             </ul>
@@ -47,14 +92,14 @@
                     <div class="dropdown profile-element" style="float: right">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">username</strong></span>
-                                <span class="text-muted text-xs block">realName<b class="caret"></b></span>
+                               <span class="block m-t-xs"><strong class="font-bold">刘云朋</strong></span>
+                                <span class="text-muted text-xs block">操作<b class="caret"></b></span>
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li class="divider"></li>
                             <li><a href="logout">loginOut</a>
-                            <li><a href="javascript:updatePassword();">updatePassword</a>
+                            <li><a href="javascript:updatePassword();">修改密码</a>
                             </li>
                         </ul>
                     </div>
@@ -66,43 +111,31 @@
             </button>
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
-                    <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">title</a>
+                    <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">通知</a>
                 </div>
             </nav>
             <button class="roll-nav roll-right J_tabRight" style="right:372px"><i class="fa fa-forward"></i>
             </button>
-            <div class="btn-group roll-nav roll-right">
-                <button class="dropdown J_tabClose  menu-right-btn" data-toggle="dropdown">language<span
-                            class="caret"></span>
-                </button>
-                <ul role="menu" class="dropdown-menu dropdown-menu-right menu-right">
-                    <li class="J_tab_language" locale="zh_CN"><a>中文</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="J_tab_language" locale="en_US"><a>English</a>
-                    </li>
 
-                </ul>
-            </div>
             <div class="btn-group roll-nav roll-right">
-                <button class="dropdown J_tabClose" data-toggle="dropdown">closeOperation<span
+                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span
                             class="caret"></span>
                 </button>
                 <ul role="menu" class="dropdown-menu dropdown-menu-right">
-                    <li class="J_tabShowActive"><a>locatCurrent</a>
+                    <li class="J_tabShowActive"><a>关闭当前</a>
                     </li>
                     <li class="divider"></li>
-                    <li class="J_tabCloseAll"><a>closeAll</a>
+                    <li class="J_tabCloseAll"><a>关闭全部</a>
                     </li>
-                    <li class="J_tabCloseOther"><a>closeOther</a>
+                    <li class="J_tabCloseOther"><a>关闭其他</a>
                     </li>
                 </ul>
             </div>
             <a href="logout" class="roll-nav roll-right J_tabExit" style="width: 120px"><i
-                        class="fa fa fa-sign-out"></i>loginOut</a>
+                        class="fa fa fa-sign-out"></i>退出</a>
         </div>
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/index_sum" frameborder="0" data-id="" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/index_sum" frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
     </div>
 </div>
