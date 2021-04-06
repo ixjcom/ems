@@ -41,7 +41,7 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li><a href="/user/to-list" class="J_menuItem">公告管理</a></li>
+                        <li><a href="/notify/to-list" class="J_menuItem">公告管理</a></li>
                     </ul>
                 </li>
 
@@ -53,7 +53,7 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li><a href="/user/to-list" class="J_menuItem">柜员信息管理</a></li>
+                        <li><a href="/userinfo/to-list" class="J_menuItem">柜员信息管理</a></li>
                     </ul>
                 </li>
 
@@ -64,7 +64,7 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li><a href="/user/to-list" class="J_menuItem">柜员业务管理</a></li>
+                        <li><a href="/business/to-list" class="J_menuItem">柜员业务管理</a></li>
                     </ul>
                 </li>
 

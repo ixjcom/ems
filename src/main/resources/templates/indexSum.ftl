@@ -16,6 +16,77 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE `tb_business` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+`password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+`mobil` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+`create_time` datetime DEFAULT NULL,
+`update_time` datetime DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tb_notify` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`title` varchar(255) DEFAULT NULL COMMENT '标题',
+`release_time` datetime DEFAULT NULL COMMENT '发布时间',
+`release_user` varchar(255) DEFAULT NULL COMMENT '发布人',
+`is_show` int DEFAULT NULL COMMENT '0不显示1显示',
+`content` longtext COMMENT '内容',
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tb_user_info` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`user_id` bigint DEFAULT NULL,
+`post__type` int DEFAULT NULL COMMENT '职务类型',
+`login_count` int DEFAULT NULL COMMENT '登陆次数',
+`login_ip` varchar(20) DEFAULT NULL COMMENT 'ip',
+`update_time` datetime DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `tb_user` (
+`id` bigint NOT NULL AUTO_INCREMENT,
+`user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+`password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+`mobil` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+`create_time` datetime DEFAULT NULL,
+`update_time` datetime DEFAULT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
     var _rootPath="/";
 </script>
