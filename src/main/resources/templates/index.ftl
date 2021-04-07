@@ -22,65 +22,88 @@
                     </div>
                     <div class="logo-element">H</div>
                 </li>
+
                 <@sec.any name="USER_ACCOUNT">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">用户管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/user/to-list" class="J_menuItem">用户账号管理</a></li>
+                        </ul>
+                    </li>
+                </@sec.any>
+
+                <@sec.any name="USER_ROLE,USER_ROLE_ADD">
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs"></i>
-                        <span class="nav-label">用户管理</span>
+                        <span class="nav-label">角色管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <@sec.any name="USER_ACCOUNT">
-                            <li><a href="/user/to-list" class="J_menuItem">用户账号管理</a></li>
+                        <@sec.any name="USER_ROLE_ADD">
+                            <li><a href="/adminRole/to-add" class="J_menuItem">新增角色</a></li>
                         </@sec.any>
-                        <li><a href="/user/to-list" class="J_menuItem">角色管理</a></li>
+                        <@sec.any name="USER_ROLE">
+                            <li><a href="/adminRole/to-list" class="J_menuItem">角色列表</a></li>
+                        </@sec.any>
                     </ul>
                 </li>
                 </@sec.any>
 
-                <li>
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span class="nav-label">通知公告管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/notify/to-list" class="J_menuItem">公告管理</a></li>
-                    </ul>
-                </li>
+                <@sec.any name="NOTIFY">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">通知公告管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/notify/to-list" class="J_menuItem">公告管理</a></li>
+                        </ul>
+                    </li>
+                </@sec.any>
 
-                <li>
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span class="nav-label">柜员信息管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/userinfo/to-list" class="J_menuItem">柜员信息管理</a></li>
-                    </ul>
-                </li>
+                <@sec.any name="USER_INFO">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">柜员信息管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/userinfo/to-list" class="J_menuItem">柜员信息管理</a></li>
+                        </ul>
+                    </li>
+                </@sec.any>
 
-                <li>
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span class="nav-label">柜员业务管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/business/to-list" class="J_menuItem">柜员业务管理</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span class="nav-label">数据统计</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/user/to-list" class="J_menuItem">业务信息排名</a></li>
-                    </ul>
-                </li>
+                <@sec.any name="USER_BUSINESS">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">柜员业务管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/business/to-list" class="J_menuItem">柜员业务管理</a></li>
+                        </ul>
+                    </li>
+                </@sec.any>
+                <@sec.any name="PERFORMANCE_RANKING">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">数据统计</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/user/to-list" class="J_menuItem">业绩排行</a></li>
+                        </ul>
+                    </li>
+                </@sec.any>
             </ul>
         </div>
     </nav>

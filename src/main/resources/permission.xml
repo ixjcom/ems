@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+
+    <permission-group name="用户管理" order="1">
+    	<permission id="10" name="用户账号管理" code="USER_ACCOUNT" depends=""/>
+    	<permission id="11" name="用户账号管理添加" code="USER_ACCOUNT_ADD" depends=""/>
+    	<permission id="12" name="用户账号管理删除" code="USER_ACCOUNT_DELETE" depends=""/>
+    	<permission id="13" name="用户账号管理修改" code="USER_ACCOUNT_UPDATE" depends=""/>
+    </permission-group>
+
+	<permission-group name="角色管理" order="2">
+		<permission id="20" name="用户账号管理" code="USER_ROLE" depends=""/>
+		<permission id="21" name="用户账号管理删除" code="USER_ROLE_DELETE" depends=""/>
+		<permission id="22" name="用户账号管理添加" code="USER_ROLE_ADD" depends=""/>
+		<permission id="23" name="用户账号管理修改" code="USER_ROLE_UPDATE" depends=""/>
+	</permission-group>
+
+
+	<permission-group name="通知管理" order="3">
+		<permission id="30" name="通知管理管理" code="NOTIFY" depends=""/>
+		<permission id="31" name="通知管理管理删除" code="NOTIFY_DELETE" depends=""/>
+		<permission id="32" name="通知管理管理添加" code="NOTIFY_ADD" depends=""/>
+		<permission id="33" name="通知管理管理修改" code="NOTIFY_UPDATE" depends=""/>
+	</permission-group>
+
+	<permission-group name="柜员信息管理" order="4">
+		<permission id="40" name="柜员信息管理" code="USER_INFO" depends=""/>
+		<permission id="41" name="柜员信息管理删除" code="USER_INFO_DELETE" depends=""/>
+		<permission id="42" name="柜员信息管理添加" code="USER_INFO_ADD" depends=""/>
+		<permission id="43" name="柜员信息管理修改" code="USER_INFO_UPDATE" depends=""/>
+	</permission-group>
+
+	<permission-group name="数据统计" order="5">
+		<permission id="50" name="业绩排行" code="PERFORMANCE_RANKING" depends=""/>
+	</permission-group>
+
+	<permission-group name="柜员业务管理" order="6">
+		<permission id="60" name="柜员业务管理" code="USER_BUSINESS" depends=""/>
+		<permission id="61" name="柜员业务管理删除" code="USER_BUSINESS_DELETE" depends=""/>
+		<permission id="62" name="柜员业务管理添加" code="USER_BUSINESS_ADD" depends=""/>
+		<permission id="63" name="柜员业务管理修改" code="USER_BUSINESS_UPDATE" depends=""/>
+	</permission-group>
+
+
+</permissions>

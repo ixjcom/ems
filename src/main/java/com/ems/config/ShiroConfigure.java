@@ -11,9 +11,11 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.Sha256Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
@@ -33,6 +35,21 @@ public class ShiroConfigure extends AuthorizingRealm {
     private PermissionConfig permissionConfig;
 
     private String salt = Sha256Hash.ALGORITHM_NAME;
+
+    private String hashAlgorithmName = Sha256Hash.ALGORITHM_NAME;
+
+    public String encryptPassword(String password) {
+        return new SimpleHash(hashAlgorithmName, password, getSaltByteSource())
+                .toBase64();
+    }
+
+    @Override
+    protected void onInit() {
+        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher(
+                hashAlgorithmName);
+        credentialsMatcher.setStoredCredentialsHexEncoded(false);
+        setCredentialsMatcher(credentialsMatcher);
+    }
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {

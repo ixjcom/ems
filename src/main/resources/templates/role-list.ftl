@@ -3,7 +3,7 @@
 
 <!-- Mirrored from www.zi-han.net/theme/hplus/form_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:19:15 GMT -->
 <head>
-    <link rel="shortcut icon" href="${ctx}favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link href="/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="/css/iCheck/custom.css" rel="stylesheet">
@@ -125,14 +125,16 @@
                 <td>{$T.role.name}</td>
                 <td>{new Date($T.role.createTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
                 <td>{new Date($T.role.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
-                <td>
-                    <@sec.any name="ROLE_UPDATE">
-                    <button type="button" roleId="{$T.role.id}" class="btn btn-primary btnRoleDetail">查看</button>
-                    </@sec.any>
-                    <@sec.any name="ROLE_DELETE">
-                    <button type="button" roleId="{$T.role.id}" class="btn btn-danger btnRoleDelete">删除</button>
-                    </@sec.any>
-                </td>
+                <@sec.any name="ROLE_UPDATE,ROLE_DELETE">
+                    <td>
+                        <@sec.any name="ROLE_UPDATE">
+                        <button type="button" roleId="{$T.role.id}" class="btn btn-primary btnRoleDetail">查看</button>
+                        </@sec.any>
+                        <@sec.any name="ROLE_DELETE">
+                        <button type="button" roleId="{$T.role.id}" class="btn btn-danger btnRoleDelete">删除</button>
+                        </@sec.any>
+                    </td>
+                </@sec.any>
             </tr>
         {#/for}
     {#else}
@@ -145,7 +147,7 @@
 <#include "/page.ftl"/>
 
 <script>
-    var _rootPath="${ctx}";
+    var _rootPath="/";
 </script>
 <script src="/js/jquery.min.js?v=2.1.4"></script>
 <script src="/js/bootstrap.min.js?v=3.3.6"></script>

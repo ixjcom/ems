@@ -96,13 +96,15 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-success " id="addUserInfo">
-                                <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">新增</span>
-                            </button>
+                    <@sec.any name="USER_INFO_ADD">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-success " id="addUserInfo">
+                                    <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">新增</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </@sec.any>
                     <div class="table-responsive">
                         <table class="table table-striped text-nowrap">
                             <thead>
@@ -113,7 +115,9 @@
                                 <th>登录次数</th>
                                 <th>登录IP</th>
                                 <th>更新时间</th>
-                                <th>操作</th>
+                                <@sec.any name="USER_INFO_DELETE,USER_INFO_UPDATE">
+                                    <th>操作</th>
+                                </@sec.any>
                             </tr>
                             </thead>
                             <tbody id="UserInfoTbody">
@@ -239,10 +243,16 @@
                         <td>{$T.record.loginCount}</td>
                         <td>{$T.record.loginIp}</td>
                         <td>{new Date($T.record.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
+                <@sec.any name="USER_INFO_DELETE,USER_INFO_UPDATE">
                 <td>
-                    <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnUserInfoDetail">详情</button>
-                    <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnUserInfoDelete">删除</button>
+                    <@sec.any name="USER_INFO_UPDATE">
+                        <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnUserInfoDetail">详情</button>
+                    </@sec.any>
+                    <@sec.any name="USER_INFO_DELETE">
+                        <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnUserInfoDelete">删除</button>
+                    </@sec.any>
                 </td>
+                </@sec.any>
             </tr>
         {#/foreach}
     {#else}
@@ -254,7 +264,7 @@
 
 
 <script>
-    var _rootPath = "${ctx}";
+    var _rootPath = "/";
 </script>
 <script src="/js/jquery.min.js?v=2.1.4"></script>
 <script src="/js/bootstrap.min.js?v=3.3.6"></script>

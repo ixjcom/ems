@@ -51,12 +51,7 @@ public class LoginController {
 	@RequestMapping("logout")
 	public String logout() {
 		userService.signOut();
-		return "redirect:/login";
-	}
-
-	@RequestMapping("no-login")
-	public String noLogin() {
-		return "no_login";
+		return "login";
 	}
 
 	/**

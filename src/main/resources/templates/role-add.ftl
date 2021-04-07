@@ -44,9 +44,7 @@
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <@sec.any name="ROLE_ADD">
                                 <button class="btn btn-primary" id="btnAddRole" data-loading-text="正在保存..." type="button">添加角色</button>
-                                </@sec.any>
                                 <button class="btn btn-white" id="btnCancel" type="button">取消</button>
                             </div>
                         </div>
@@ -66,7 +64,10 @@
 <script type="text/javascript" src="/js/contabs.min.js"></script>
 <script src="/js/contabs.min.js"></script>
 <script src="/js/common.js"></script>
+<script src="/js/icheck.min.js"></script>
 <script src="/js/sweetalert/sweetalert.min.js"></script>
+<script src="/js/validate/jquery.validate.min.js"></script>
+<script src="/js/validate/messages_zh.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
@@ -74,7 +75,7 @@
             if($("#roleForm").valid()){
                 if($("input[name='permissionIds']:checked").length > 0){
                     $(this).button('loading');
-                    post("${ctx}adminRole/insert",$("#roleForm").serialize(),function (result) {
+                    post("/adminRole/insert",$("#roleForm").serialize(),function (result) {
                         $("#btnAddRole").button('reset');
                         if(result.success==true){
                             swal({title:"提示", text:"保存角色成功",type:'success'},function () {

@@ -49,6 +49,7 @@ public class PermissionConfig {
 	private void initPermissions() throws IOException {
 		List<Resource> permissionResources = getResourcesByWildcard(PERMISSION_PATH);
 		XStream xstream = new XStream();
+		xstream.setClassLoader(Permissions.class.getClassLoader());
 		xstream.processAnnotations(new Class[]{Permissions.class,PermissionGroup.class, Permission.class});
 		for (Resource permissionResource : permissionResources) {
 			log.debug("加载权限配置文件[{}]...", permissionResource.getURI().toString());

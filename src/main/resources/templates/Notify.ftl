@@ -22,79 +22,76 @@
                     <form id="NotifySearchForm" method="post" class="form-horizontal">
                         <input type="hidden" name="pageNum" id="pageNo" value="1">
                         <input type="hidden" name="pageSize" id="pageSize" value="10">
-                                    <div class="form-group">
-		                     	<div class="col-md-3">
-		                              <div class="form-group">
-		                                    <label class="col-sm-6 control-label">编号：</label>
-		                                    <div class="col-sm-6">
-		                                        <input type="text" name="id" class="form-control" placeholder="请输入编号">
-		                                    </div>
-		                               </div>
-		                        </div>
-		                     	<div class="col-md-3">
-		                              <div class="form-group">
-		                                    <label class="col-sm-6 control-label">标题：</label>
-		                                    <div class="col-sm-6">
-		                                        <input type="text" name="title" class="form-control" placeholder="请输入标题">
-		                                    </div>
-		                               </div>
-		                        </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">发布时间：</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" id="startReleaseTime" name="startReleaseTime" value="" class="form-control" placeholder="">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" id="endReleaseTime" name="endReleaseTime" value="" class="form-control" placeholder="">
-                                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">编号：</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="id" class="form-control" placeholder="请输入编号">
                                     </div>
                                 </div>
-								
-	               		 	 </div>
-                             <div class="hr-line-dashed"></div>
-                                    <div class="form-group">
-		                     	<div class="col-md-3">
-		                              <div class="form-group">
-		                                    <label class="col-sm-6 control-label">发布者名称：</label>
-		                                    <div class="col-sm-6">
-		                                        <input type="text" name="releaseUser" class="form-control" placeholder="请输入发布者名称">
-		                                    </div>
-		                               </div>
-		                        </div>
-		                     	<div class="col-md-3">
-		                              <div class="form-group">
-		                                    <label class="col-sm-6 control-label">发布者编号：</label>
-		                                    <div class="col-sm-6">
-		                                        <input type="text" name="releaseUserId" class="form-control" placeholder="请输入发布者编号">
-		                                    </div>
-		                               </div>
-		                        </div>
-		                     	<div class="col-md-3">
-		                              <div class="form-group">
-		                                    <label class="col-sm-6 control-label">是否显示：</label>
-		                                    <div class="col-sm-6">
-		                                        <input type="text" name="isShow" class="form-control" placeholder="请输入是否显示">
-		                                    </div>
-		                               </div>
-		                        </div>
-		                     	<div class="col-md-3">
-		                              <div class="form-group">
-		                                    <label class="col-sm-6 control-label">内容：</label>
-		                                    <div class="col-sm-6">
-		                                        <input type="text" name="content" class="form-control" placeholder="请输入内容">
-		                                    </div>
-		                               </div>
-		                        </div>
-	               		 	 </div>
-                             <div class="hr-line-dashed"></div>
-					</div>
-               </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">标题：</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="title" class="form-control" placeholder="请输入标题">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">发布时间：</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="startReleaseTime" name="startReleaseTime" value="" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="endReleaseTime" name="endReleaseTime" value="" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">发布者名称：</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="releaseUser" class="form-control" placeholder="请输入发布者名称">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">发布者编号：</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="releaseUserId" class="form-control" placeholder="请输入发布者编号">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">是否显示：</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="isShow" class="form-control" placeholder="请输入是否显示">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">内容：</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="content" class="form-control" placeholder="请输入内容">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                             <button id="NotifyBtnSearch" class="btn btn-primary" type="button">搜索</button>
-                        	<button id="NotifyBtnCancel" class="btn btn-white" type="button">清除</button>
+                                <button id="NotifyBtnSearch" class="btn btn-primary" type="button">搜索</button>
+                                <button id="NotifyBtnCancel" class="btn btn-white" type="button">清除</button>
                             </div>
                         </div>
                     </form>
@@ -104,21 +101,23 @@
     </div>
 
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="ibox float-e-margins">
-            <div class="ibox-content">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <button type="button" class="btn btn-success " id="addNotify">
-                            <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">新增</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-striped text-nowrap">
-                        <thead>
-                        <tr>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <@sec.any name="NOTIFY_ADD">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-success " id="addNotify">
+                                    <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">新增</span>
+                                </button>
+                            </div>
+                        </div>
+                    </@sec.any>
+                    <div class="table-responsive">
+                        <table class="table table-striped text-nowrap">
+                            <thead>
+                            <tr>
                                 <th>编号</th>
                                 <th>标题</th>
                                 <th>是否显示</th>
@@ -126,22 +125,24 @@
                                 <th>发布者名称</th>
                                 <th>发布者内容</th>
                                 <th>发布时间</th>
+                                <@sec.any name="NOTIFY_DELETE,NOTIFY_UPDATE">
                                 <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody id="NotifyTbody">
-                        </tbody>
-                    </table>
+                                </@sec.any>
+                            </tr>
+                            </thead>
+                            <tbody id="NotifyTbody">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="ibox-content" style="height: 53px;">
-                <div class="page" id="NotifyPageDiv">
+                <div class="ibox-content" style="height: 53px;">
+                    <div class="page" id="NotifyPageDiv">
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- 新增弹框 -->
@@ -155,26 +156,26 @@
             <div class="modal-body">
                 <form id="NotifyAddForm" method="post" class="form-horizontal">
                     <div class="form-group">
-                            <label class="col-sm-2 control-label">标题:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="title" id="addTitle"  required class="form-control" placeholder="请输入标题">
-                            </div>
+                        <label class="col-sm-2 control-label">标题:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="title" id="addTitle" required class="form-control" placeholder="请输入标题">
                         </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">是否显示:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="isShow" id="addIsShow"  required class="form-control" placeholder="请输入是否显示">
-                            </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">是否显示:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="isShow" id="addIsShow" required class="form-control" placeholder="请输入是否显示">
                         </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">内容:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="content" id="addContent"  required class="form-control" placeholder="请输入内容">
-                            </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">内容:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="content" id="addContent" required class="form-control" placeholder="请输入内容">
                         </div>
-                        <div class="hr-line-dashed"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
@@ -200,10 +201,16 @@
                         <td>{$T.record.releaseUserId}</td>
                         <td>{$T.record.releaseUser}</td>
                         <td>{new Date($T.record.releaseTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
-                <td>
-                    <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnNotifyDetail">详情</button>
-                    <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnNotifyDelete">删除</button>
-                </td>
+                <@sec.any name="NOTIFY_DELETE,NOTIFY_UPDATE">
+                    <td>
+                        <@sec.any name="NOTIFY_UPDATE">
+                        <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnNotifyDetail">详情</button>
+                        </@sec.any>
+                        <@sec.any name="NOTIFY_DELETE">
+                        <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnNotifyDelete">删除</button>
+                        </@sec.any>
+                    </td>
+                </@sec.any>
             </tr>
         {#/foreach}
     {#else}
@@ -215,7 +222,7 @@
 
 
 <script>
-    var _rootPath="${ctx}";
+    var _rootPath = "/";
 </script>
 <script src="/js/jquery.min.js?v=2.1.4"></script>
 <script src="/js/bootstrap.min.js?v=3.3.6"></script>

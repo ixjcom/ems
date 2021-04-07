@@ -3,16 +3,16 @@ package com.ems.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/index")
 @Controller
+@RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping("")
+    @RequestMapping("index")
     public String index(){
         return "index";
     }
 
-    @RequestMapping("index_sum")
+    @RequestMapping("index/index_sum")
     public String indexSum(){
         return "indexSum";
     }

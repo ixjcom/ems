@@ -102,13 +102,15 @@
     <div class="col-sm-12">
         <div class="ibox float-e-margins">
             <div class="ibox-content">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <button type="button" class="btn btn-success " id="addUser">
-                            <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加</span>
-                        </button>
+                <@sec.any name="USER_ACCOUNT_ADD">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-success " id="addUser">
+                                <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </@sec.any>
                 <div class="table-responsive">
                     <table class="table table-striped text-nowrap">
                         <thead>
@@ -118,7 +120,9 @@
                                 <th>手机号</th>
                                 <th>创建时间</th>
                                 <th>修改时间</th>
+                                <@sec.any name="USER_ACCOUNT_DELETE,USER_ACCOUNT_UPDATE">
                                 <th>操作</th>
+                                </@sec.any>
                         </tr>
                         </thead>
                         <tbody id="UserTbody">
@@ -254,10 +258,16 @@
                         <td>{$T.record.mobil}</td>
                         <td>{new Date($T.record.createTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
                         <td>{new Date($T.record.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
+                <@sec.any name="USER_ACCOUNT_DELETE,USER_ACCOUNT_UPDATE">
                 <td>
+                    <@sec.any name="USER_ACCOUNT_UPDATE">
                     <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnUserDetail">详情</button>
+                    </@sec.any>
+                    <@sec.any name="USER_ACCOUNT_DELETE">
                     <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnUserDelete">删除</button>
+                    </@sec.any>
                 </td>
+                </@sec.any>
             </tr>
         {#/foreach}
     {#else}
