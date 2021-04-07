@@ -1,9 +1,11 @@
 package com.ems.controller;
 
 
+import com.ems.dal.example.Role;
 import com.ems.dal.example.UserInfo;
 import com.ems.from.UserInfoSearchForm;
 import com.ems.mode.ConsoleResultModel;
+import com.ems.service.IAdminRoleService;
 import com.ems.service.IUserInfoService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
@@ -23,10 +25,14 @@ public class UserInfoContoller {
     @Resource
     private IUserInfoService userInfoService;
 
+    @Resource
+    private IAdminRoleService adminRoleService;
+
     @RequestMapping("/to-list")
     public String toList(Model model) throws Exception
     {
-      
+        List<Role> roles = adminRoleService.selectAll();
+        model.addAttribute("roles",roles);
         return "UserInfo";
     }
 

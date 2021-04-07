@@ -196,6 +196,19 @@
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">角色:</label>
+                        <div class="col-sm-10">
+                            <select name="roleId" class="form-control">
+                                <#list roles as e>
+                                    <option value="${e.id}">${e.name}</option>
+                                </#list>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
                         <div class="form-group">
                             <label class="col-sm-2 control-label">密码:</label>
                             <div class="col-sm-10">

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ems.dal.mapper.DataRankMapper" >
+
+    <select id="selectDataRankRraction" resultType="java.util.Map">
+        SELECT
+            userName,
+            id,
+            fraction,
+            (@i :=@i + 1) AS rowno
+        from (
+            select
+                u.user_name as userName,
+                u.id,
+                b.fraction as fraction
+            from
+                tb_business as b,
+                tb_user as u
+            where
+                b.user_id = u.id
+            order by b.fraction desc
+            limit 0,20)
+        as v,
+        (SELECT @i := 0) AS it
+    </select>
+
+    <select id="selectDataRankBusiness" resultType="java.util.Map">
+        SELECT
+            userName,
+            id,
+            businessCount,
+            (@i :=@i + 1) AS rowno
+        from (
+        select
+            u.user_name as userName,
+            u.id,
+            b.business_count as businessCount
+        from
+            tb_business as b,
+            tb_user as u
+        where
+            b.user_id = u.id
+        order by b.business_count desc
+            limit 0,20)
+        as v,
+        (SELECT @i := 0) AS it
+    </select>
+
+</mapper>

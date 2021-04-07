@@ -3,18 +3,25 @@ package com.ems.service.impl;
 import com.ems.config.ShiroConfigure;
 import com.ems.dal.example.User;
 import com.ems.dal.example.UserExample;
+import com.ems.dal.example.UserInfo;
+import com.ems.dal.example.UserInfoExample;
+import com.ems.dal.mapper.UserInfoMapper;
 import com.ems.dal.mapper.UserMapper;
 import com.ems.from.UserSearchForm;
 import com.ems.service.IUserService;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -26,11 +33,32 @@ public class UserService implements IUserService {
     @Resource
     protected ShiroConfigure shiroConfigure;
 
+    @Resource
+    private UserInfoMapper userInfoMapper;
+
     @Override
     public int insert(User user) throws Exception
     {
         String s = shiroConfigure.encryptPassword(user.getPassword());
         user.setPassword(s);
+
+        if (StringUtils.isNotEmpty(user.getUserName())){
+            user.setUserName(UUID.randomUUID().toString().substring(0,20));
+        }
+
+        if (user.getRoleId()==null){
+            user.setRoleId(4l);
+        }
+
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria().andUserNameEqualTo(user.getUserName());
+
+        int count = userMapper.countByExample(example);
+
+        if (count>0){
+            throw new Exception("用户名重复");
+        }
+
         return userMapper.insertSelective(user);
     }
 
@@ -93,10 +121,67 @@ public class UserService implements IUserService {
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
             shiroConfigure.clearCache();
+
+        User currentUser = getCurrentUser();
+        //获取当前用户,设置登陆次数和登陆IP
+        UserInfoExample exaple = new UserInfoExample();
+        exaple.createCriteria().andUserIdEqualTo(currentUser.getId());
+        List<UserInfo> userInfos = userInfoMapper.selectByExample(exaple);
+        if (CollectionUtils.isEmpty(userInfos)){
+            UserInfo userInfo = new UserInfo();
+            userInfo.setUserId(currentUser.getId());
+            userInfo.setUpdateTime(new Date());
+            userInfo.setLoginCount(0);
+            userInfo.setPostType(currentUser.getRoleId().intValue());
+            userInfo.setLoginIp(requstIp);
+            userInfoMapper.insertSelective(userInfo);
+        }else {
+            UserInfo userInfo = new UserInfo();
+            UserInfo userInfo1 = userInfos.get(0);
+            userInfo.setLoginIp(requstIp);
+            userInfo.setUpdateTime(new Date());
+            userInfo.setId(userInfo1.getId());
+            userInfo.setLoginCount(userInfo1.getLoginCount()+1);
+            userInfoMapper.updateByPrimaryKeySelective(userInfo);
+        }
     }
+
+
 
     @Override
     public void signOut() {
+        shiroConfigure.clearCache();
+        SecurityUtils.getSubject().logout();
+    }
 
+    @Override
+    public User getCurrentUser() {
+        Long userId = (Long) SecurityUtils.getSubject().getPrincipal();
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public void updateImage(UserSearchForm form) {
+        User currentUser = getCurrentUser();
+        User user = new User();
+        user.setId(currentUser.getId());
+        user.setImage(form.getImage());
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public void updatePasswd(UserSearchForm passwdUpdateForm) throws Exception {
+        if(!StringUtils.equals(passwdUpdateForm.getNewPassword(),passwdUpdateForm.getNewPasswordConfirm())){
+            throw new Exception("confirm.passwd.not");
+        }
+        User adminUser = this.userMapper.selectByPrimaryKey(passwdUpdateForm.getId());
+        if(adminUser==null){
+            throw new Exception("user.not.exist");
+        }
+        if(!StringUtils.equals(shiroConfigure.encryptPassword(passwdUpdateForm.getOldPassword()),adminUser.getPassword())){
+            throw new Exception("user.passwd.wrong");
+        }
+        adminUser.setPassword(shiroConfigure.encryptPassword(passwdUpdateForm.getNewPassword()));
+        this.userMapper.updateByPrimaryKeySelective(adminUser);
     }
 }

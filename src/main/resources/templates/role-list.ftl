@@ -56,6 +56,8 @@
                             <thead>
                             <tr>
                                 <th>角色名</th>
+                                <th>创建时间</th>
+                                <th>更新时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -108,7 +110,7 @@
                 </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                <@sec.any name="ROLE_UPDATE">
+                <@sec.any name="USER_ROLE_UPDATE">
                 <button type="button" id="btnSaveUpdate" class="btn btn-primary">保存</button>
                 </@sec.any>
             </div>
@@ -121,12 +123,14 @@
         {#foreach $T.data.list as role}
             <tr>
                 <td>{$T.role.name}</td>
-                <@sec.any name="ROLE_UPDATE,ROLE_DELETE">
+                <td>{new Date($T.role.createTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
+                <td>{new Date($T.role.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
+                <@sec.any name="USER_ROLE_UPDATE,USER_ROLE_DELETE">
                     <td>
-                        <@sec.any name="ROLE_UPDATE">
+                        <@sec.any name="USER_ROLE_UPDATE">
                         <button type="button" roleId="{$T.role.id}" class="btn btn-primary btnRoleDetail">查看</button>
                         </@sec.any>
-                        <@sec.any name="ROLE_DELETE">
+                        <@sec.any name="USER_ROLE_DELETE">
                         <button type="button" roleId="{$T.role.id}" class="btn btn-danger btnRoleDelete">删除</button>
                         </@sec.any>
                     </td>

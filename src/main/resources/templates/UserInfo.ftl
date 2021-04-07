@@ -115,9 +115,6 @@
                                 <th>登录次数</th>
                                 <th>登录IP</th>
                                 <th>更新时间</th>
-                                <@sec.any name="USER_INFO_DELETE,USER_INFO_UPDATE">
-                                    <th>操作</th>
-                                </@sec.any>
                             </tr>
                             </thead>
                             <tbody id="UserInfoTbody">
@@ -134,8 +131,9 @@
         </div>
     </div>
 </div>
+<#--
 
-<!-- 修改弹框 -->
+<!-- 修改弹框 &ndash;&gt;
 <div class="modal inmodal" id="UserInfoDetail" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content animated fadeIn">
@@ -155,19 +153,11 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">职务类型:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="postType" id="savePostType" required="" class="form-control" placeholder="请输入职务类型">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">登录次数:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="loginCount" id="saveLoginCount" readonly class="form-control" placeholder="请输入登录次数">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">ip:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="loginIp" id="saveLoginIp" readonly class="form-control" placeholder="请输入ip">
+                            <select name="postType" id="savePostType" class="form-control">
+                                <#list roles as e>
+                                    <option value="${e.id}">${e.name}</option>
+                                </#list>
+                            </select>
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -181,7 +171,7 @@
     </div>
 </div>
 
-<!-- 新增弹框 -->
+<!-- 新增弹框 &ndash;&gt;
 <div class="modal inmodal" id="UserInfoAdd" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content animated fadeIn">
@@ -197,28 +187,6 @@
                             <input type="text" name="userId" id="addUserId" required class="form-control" placeholder="请输入用户编号">
                         </div>
                     </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">职务类型:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="postType" id="addPostType" required class="form-control" placeholder="请输入职务类型">
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">登录次数:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="loginCount" id="addLoginCount" required class="form-control" placeholder="请输入登录次数">
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">ip:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="loginIp" id="addLoginIp" required class="form-control" placeholder="请输入ip">
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
@@ -230,6 +198,7 @@
         </div>
     </div>
 </div>
+-->
 
 <#include "/page.ftl"/>
 
@@ -239,11 +208,17 @@
             <tr>
                         <td>{$T.record.id}</td>
                         <td>{$T.record.userId}</td>
-                        <td>{$T.record.postType}</td>
+                        <td>{$T.record.postType}
+                            <#list roles as e>
+                                {#if ${e.id}==$T.record.postType}
+                                    ${e.name}
+                                {#/if}
+                            </#list>
+                        </td>
                         <td>{$T.record.loginCount}</td>
                         <td>{$T.record.loginIp}</td>
                         <td>{new Date($T.record.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
-                <@sec.any name="USER_INFO_DELETE,USER_INFO_UPDATE">
+<#--                <@sec.any name="USER_INFO_DELETE,USER_INFO_UPDATE">
                 <td>
                     <@sec.any name="USER_INFO_UPDATE">
                         <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnUserInfoDetail">详情</button>
@@ -252,7 +227,7 @@
                         <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnUserInfoDelete">删除</button>
                     </@sec.any>
                 </td>
-                </@sec.any>
+                </@sec.any>-->
             </tr>
         {#/foreach}
     {#else}

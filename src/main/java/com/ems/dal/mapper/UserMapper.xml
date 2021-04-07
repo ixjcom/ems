@@ -214,6 +214,11 @@
       <if test="record.roleId != null" >
         role_id = #{record.roleId,jdbcType=BIGINT},
       </if>
+
+      <if test="record.image != null" >
+        role_id = #{record.image,jdbcType=VARCHAR},
+      </if>
+
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -260,6 +265,9 @@
       </if>
       <if test="roleId != null" >
         role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}

@@ -20,7 +20,7 @@
 <div class="middle-box text-center loginscreen  animated fadeInDown">
     <div>
         <div>
-            <img src="/img/a11.gif" style="margin-top: 60%" />
+            <img src="/image/a11.png" style="margin-top: 60%" />
         </div>
         <h3>欢迎</h3>
 

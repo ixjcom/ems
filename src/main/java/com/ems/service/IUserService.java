@@ -23,4 +23,9 @@ public interface IUserService {
 
     void signOut();
 
+    void updatePasswd(UserSearchForm form) throws Exception;
+
+    public User getCurrentUser();
+
+    void updateImage(UserSearchForm form);
 }

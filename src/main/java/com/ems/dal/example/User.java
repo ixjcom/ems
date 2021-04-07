@@ -22,7 +22,17 @@ public class User implements Serializable {
 
     private Long roleId;
 
+    private String image;
+
     private static final long serialVersionUID = 1L;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Long getId() {
         return id;

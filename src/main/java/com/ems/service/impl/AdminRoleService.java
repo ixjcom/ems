@@ -16,6 +16,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,6 +51,8 @@ public class AdminRoleService implements IAdminRoleService {
 			if (CollectionUtils.isNotEmpty((adminRoleAddForm.getPermissionIds()))) {
 				adminRole.setPermissions(permissionConfig.getPermissionCode(adminRoleAddForm.getPermissionIds()).getCode());
 			}
+			adminRole.setCreateTime(new Date());
+			adminRole.setUpdateTime(new Date());
 			return roleMapper.insert(adminRole);
 		}
 		return 0;
@@ -86,6 +89,7 @@ public class AdminRoleService implements IAdminRoleService {
 		if (CollectionUtils.isNotEmpty((adminRoleUpdateForm.getPermissionIds()))) {
 			adminRole.setPermissions(permissionConfig.getPermissionCode(adminRoleUpdateForm.getPermissionIds()).getCode());
 		}
+		adminRole.setUpdateTime(new Date());
 		return roleMapper.updateByPrimaryKeySelective(adminRole);
 	}
 

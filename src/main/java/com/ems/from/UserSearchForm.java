@@ -9,11 +9,20 @@ public class UserSearchForm extends PageSearchForm implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-    
     /**
     *
     */
-    private Long id; 
+    private Long id;
+
+    //原密码
+    private String oldPassword;
+
+    //新密码
+    private String newPassword;
+
+    //确认密码
+    private String newPasswordConfirm;
+
     
     /**
     *
@@ -68,6 +77,7 @@ public class UserSearchForm extends PageSearchForm implements Serializable{
     private Long roleId;
 
     private String image;
+
 
     public Long getRoleId() {
         return roleId;
@@ -165,8 +175,28 @@ public class UserSearchForm extends PageSearchForm implements Serializable{
     public void setEndUpdateTime(Date endUpdateTime) {
         this.endUpdateTime = endUpdateTime;
     }
-	
-   
 
+    public String getOldPassword() {
+        return oldPassword;
+    }
 
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
+    public String getNewPasswordConfirm() {
+        return newPasswordConfirm;
+    }
+
+    public void setNewPasswordConfirm(String newPasswordConfirm) {
+        this.newPasswordConfirm = newPasswordConfirm;
+    }
 }
