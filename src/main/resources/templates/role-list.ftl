@@ -56,8 +56,6 @@
                             <thead>
                             <tr>
                                 <th>角色名</th>
-                                <th>创建时间</th>
-                                <th>最后更新时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -123,8 +121,6 @@
         {#foreach $T.data.list as role}
             <tr>
                 <td>{$T.role.name}</td>
-                <td>{new Date($T.role.createTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
-                <td>{new Date($T.role.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
                 <@sec.any name="ROLE_UPDATE,ROLE_DELETE">
                     <td>
                         <@sec.any name="ROLE_UPDATE">

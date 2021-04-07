@@ -29,6 +29,8 @@ public class UserService implements IUserService {
     @Override
     public int insert(User user) throws Exception
     {
+        String s = shiroConfigure.encryptPassword(user.getPassword());
+        user.setPassword(s);
         return userMapper.insertSelective(user);
     }
 

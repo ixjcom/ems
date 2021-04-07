@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -55,6 +56,7 @@ public class BusinessCongtroller {
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         Business model = new Business();
 		BeanUtils.copyProperties(form, model);
+        model.setUpdateTime(new Date());
         Integer result = this.businessService.update(model);
         resultModel.setData(result);
         return resultModel;
@@ -75,6 +77,7 @@ public class BusinessCongtroller {
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         Business model = new Business();
         BeanUtils.copyProperties(form, model);
+        model.setUpdateTime(new Date());
         int row = this.businessService.insert(model);
         if(row<=0){
             resultModel.setSuccess(false);

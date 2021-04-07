@@ -15,8 +15,6 @@
         <javaModelGenerator targetPackage="com.ems.dal.example" targetProject="src/main/java" />
     	<sqlMapGenerator targetPackage="com.ems.dal.mapper" targetProject="src/main/java" />
     	<javaClientGenerator targetPackage="com.ems.dal.mapper" targetProject="src/main/java" type="XMLMAPPER" />
-          <table schema="" tableName="tb_notify" domainObjectName="Notify"/>
-          <table schema="" tableName="tb_user_info" domainObjectName="UserInfo"/>
-          <table schema="" tableName="tb_business" domainObjectName="Business"/>
+        <table schema="" tableName="tb_role" domainObjectName="Role"/>
    </context>
 </generatorConfiguration>

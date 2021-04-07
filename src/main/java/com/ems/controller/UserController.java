@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -61,6 +62,7 @@ public class UserController{
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         User model = new User();
 		BeanUtils.copyProperties(form, model);
+		model.setUpdateTime(new Date());
         Integer result = this.userService.update(model);
         resultModel.setData(result);
         return resultModel;
@@ -81,6 +83,8 @@ public class UserController{
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         User model = new User();
         BeanUtils.copyProperties(form, model);
+        model.setUpdateTime(new Date());
+        model.setCreateTime(new Date());
         int row = this.userService.insert(model);
         if(row<=0){
             resultModel.setSuccess(false);

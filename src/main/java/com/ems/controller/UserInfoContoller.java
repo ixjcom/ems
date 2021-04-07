@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -55,6 +56,7 @@ public class UserInfoContoller {
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         UserInfo model = new UserInfo();
 		BeanUtils.copyProperties(form, model);
+        model.setUpdateTime(new Date());
         Integer result = this.userInfoService.update(model);
         resultModel.setData(result);
         return resultModel;
@@ -75,6 +77,7 @@ public class UserInfoContoller {
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         UserInfo model = new UserInfo();
         BeanUtils.copyProperties(form, model);
+        model.setUpdateTime(new Date());
         int row = this.userInfoService.insert(model);
         if(row<=0){
             resultModel.setSuccess(false);

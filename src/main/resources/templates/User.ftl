@@ -163,27 +163,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">密码:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="password" id="savePassword" required=""  class="form-control" placeholder="请输入密码">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="col-sm-2 control-label">手机号:</label>
                     <div class="col-sm-10">
                         <input type="text" name="mobil" id="saveMobil" required=""  class="form-control" placeholder="请输入手机号">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">创建时间:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="createTime" id="saveCreateTime" required=""  class="form-control" placeholder="请输入创建时间">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">更新时间:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="updateTime" id="saveUpdateTime" required=""  class="form-control" placeholder="请输入更新时间">
                     </div>
                 </div>
             <div class="hr-line-dashed"></div>
@@ -211,13 +193,6 @@
                             <label class="col-sm-2 control-label">用户名:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="userName" id="addUserName"  required class="form-control" placeholder="请输入用户名">
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">密码:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="password" id="addPassword"  required class="form-control" placeholder="请输入密码">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
@@ -296,7 +271,7 @@
 <script src="/js/summernote/summernote-zh-CN.js"></script>
 <script src="/js/currencyUtil.js"></script>
 <script src="/js/page.js"></script>
-<script src="/js/UserScript.js?v=1"></script>
+<script src="/js/UserScript.js?v=2"></script>
 </body>
 
 </html>

@@ -31,24 +31,10 @@ $(document).ready(function () {
         istoday: true
     };
     
-    var saveCreateTime={
-        elem: "#saveCreateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
-    var addCreateTime={
-        elem: "#addCreateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
+
     laydate(startCreateTime);
     laydate(endCreateTime);
-    laydate(saveCreateTime);
-    laydate(addCreateTime);
+
    	var startUpdateTime = {
         elem: "#startUpdateTime",
         format: "YYYY-MM-DD",
@@ -63,25 +49,9 @@ $(document).ready(function () {
         istime: true,
         istoday: true
     };
-    
-    var saveUpdateTime={
-        elem: "#saveUpdateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
-    var addUpdateTime={
-        elem: "#addUpdateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
+
     laydate(startUpdateTime);
     laydate(endUpdateTime);
-    laydate(saveUpdateTime);
-    laydate(addUpdateTime);
 
     $("#addUser").on("click",function () {
         $("#UserAddForm")[0].reset();
