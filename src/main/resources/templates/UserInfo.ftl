@@ -208,7 +208,7 @@
             <tr>
                         <td>{$T.record.id}</td>
                         <td>{$T.record.userId}</td>
-                        <td>{$T.record.postType}
+                        <td>
                             <#list roles as e>
                                 {#if ${e.id}==$T.record.postType}
                                     ${e.name}
