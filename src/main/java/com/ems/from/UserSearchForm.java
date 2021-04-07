@@ -65,9 +65,27 @@ public class UserSearchForm extends PageSearchForm implements Serializable{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updateTime; 
   
-  
+    private Long roleId;
 
-	public Long getId() {
+    private String image;
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Long getId() {
 		return id;
     }
 

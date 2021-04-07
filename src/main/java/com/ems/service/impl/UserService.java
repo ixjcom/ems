@@ -1,15 +1,19 @@
 package com.ems.service.impl;
 
-import javax.annotation.Resource;
-
+import com.ems.config.ShiroConfigure;
 import com.ems.dal.example.User;
 import com.ems.dal.example.UserExample;
 import com.ems.dal.mapper.UserMapper;
 import com.ems.from.UserSearchForm;
 import com.ems.service.IUserService;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -18,6 +22,9 @@ public class UserService implements IUserService {
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    protected ShiroConfigure shiroConfigure;
 
     @Override
     public int insert(User user) throws Exception
@@ -76,4 +83,18 @@ public class UserService implements IUserService {
 	public User selectById(Long id)throws Exception{
 		return userMapper.selectByPrimaryKey(id);
 	}
+
+
+    @Override
+    public void signIn(String username, String password, String requstIp) {
+            AuthenticationToken token = new UsernamePasswordToken(username,password);
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(token);
+            shiroConfigure.clearCache();
+    }
+
+    @Override
+    public void signOut() {
+
+    }
 }

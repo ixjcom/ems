@@ -12,9 +12,15 @@ public class User implements Serializable {
 
     private String mobil;
 
+    private String loginIp;
+
     private Date createTime;
 
     private Date updateTime;
+
+    private String permissions;
+
+    private Long roleId;
 
     private static final long serialVersionUID = 1L;
 
@@ -50,6 +56,14 @@ public class User implements Serializable {
         this.mobil = mobil;
     }
 
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -64,5 +78,21 @@ public class User implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 }

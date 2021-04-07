@@ -22,7 +22,7 @@
                     <form id="UserSearchForm" method="post" class="form-horizontal">
                         <input type="hidden" name="pageNum" id="pageNo" value="1">
                         <input type="hidden" name="pageSize" id="pageSize" value="10">
-                                    <div class="form-group">
+                            <div class="form-group">
 		                     	<div class="col-md-3">
 		                              <div class="form-group">
 		                                    <label class="col-sm-6 control-label">id：</label>
@@ -57,7 +57,7 @@
 		                        </div>
 	               		 	 </div>
                              <div class="hr-line-dashed"></div>
-                                    <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">创建时间：</label>
@@ -82,10 +82,8 @@
                                     </div>
                                 </div>
 								
-	               		 	 </div>
+                     </div>
                              <div class="hr-line-dashed"></div>
-					</div>
-               </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
@@ -220,23 +218,16 @@
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">密码:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="password" id="addPassword"  required class="form-control" placeholder="请输入密码">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">手机号:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="mobil" id="addMobil"  required class="form-control" placeholder="请输入手机号">
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">创建时间:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="createTime" id="addCreateTime"  required class="form-control" placeholder="请输入创建时间">
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">更新时间:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="updateTime" id="addUpdateTime"  required class="form-control" placeholder="请输入更新时间">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>

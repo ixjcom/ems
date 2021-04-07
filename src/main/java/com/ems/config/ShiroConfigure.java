@@ -1,20 +1,24 @@
 package com.ems.config;
 
+import com.ems.dal.example.Role;
 import com.ems.dal.example.User;
 import com.ems.dal.example.UserExample;
+import com.ems.dal.mapper.RoleMapper;
 import com.ems.dal.mapper.UserMapper;
+import com.ems.permission.BitCode;
+import com.ems.permission.PermissionConfig;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.Sha256Hash;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.apache.shiro.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShiroConfigure extends AuthorizingRealm {
@@ -22,17 +26,31 @@ public class ShiroConfigure extends AuthorizingRealm {
     @Resource
     private UserMapper userMapper;
 
+    @Resource
+    private RoleMapper roleMapper;
+
+    @Resource
+    private PermissionConfig permissionConfig;
+
     private String salt = Sha256Hash.ALGORITHM_NAME;
-    private String hashAlgorithmName = Sha256Hash.ALGORITHM_NAME;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         Long userId = (Long) getAvailablePrincipal(principals);
-        //AdminUser user = adminUserMapper.selectByPrimaryKey(userId);
+        User user = userMapper.selectByPrimaryKey(userId);
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        List<String> roles = new ArrayList<>();
-        roles.add("test");
-        info.addRoles(roles);
+        BitCode userCode = null;
+        if (StringUtils.isNotEmpty(user.getPermissions())) {
+            userCode = new BitCode(user.getPermissions());
+        }
+        BitCode roleCode = null;
+        if (user.getRoleId() != null) {
+            Role role = roleMapper.selectByPrimaryKey(user.getRoleId());
+            if (role != null && StringUtils.isNotEmpty(role.getPermissions())) {
+                roleCode = new BitCode(role.getPermissions());
+            }
+        }
+        info.addRoles(permissionConfig.getPermissionCodes(getUserPermission(userCode, roleCode)));
         return info;
     }
 
@@ -40,44 +58,33 @@ public class ShiroConfigure extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
         String username = upToken.getUsername();
-
         UserExample example = new UserExample();
         example.createCriteria().andUserNameEqualTo(username);
         List<User> users = userMapper.selectByExample(example);
-
         if (CollectionUtils.isEmpty(users)) {
             throw new UnknownAccountException();
         }
         User user = users.get(0);
-
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getId(), user.getPassword(), getSaltByteSource(),getName());
-        return null;
-    }
-
-
-    /**
-     * 检查密码是否正确。
-     * @param password       原密码
-     * @param hashedPassword 加密后的密码
-     * @return 如果密码正确返回true，否则返回false。
-     */
-    public Boolean checkPassword(String password, String hashedPassword) {
-        return encryptPassword(password).equals(hashedPassword);
-    }
-
-    /**
-     * 加密。
-     * @param password 待加密的密码
-     * @return 返回加密后的密码。
-     */
-    public String encryptPassword(String password) {
-        return new SimpleHash(hashAlgorithmName, password, getSaltByteSource()).toBase64();
+        return info;
     }
 
     private ByteSource getSaltByteSource() {
         return ByteSource.Util.bytes(salt);
     }
 
+    public void clearCache() {
+        clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
+    }
 
-
+    private BitCode getUserPermission(BitCode userCode, BitCode roleCode) {
+        if (userCode != null && roleCode != null) {
+            return userCode.or(roleCode);
+        } else if (userCode == null && roleCode != null) {
+            return roleCode;
+        } else if (userCode != null && roleCode == null) {
+            return userCode;
+        }
+        return new BitCode();
+    }
 }

@@ -1,9 +1,11 @@
 package com.ems.controller;
 
 
+import com.ems.dal.example.Role;
 import com.ems.dal.example.User;
 import com.ems.from.UserSearchForm;
 import com.ems.mode.ConsoleResultModel;
+import com.ems.service.IAdminRoleService;
 import com.ems.service.IUserService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
@@ -22,10 +24,14 @@ public class UserController{
     @Resource
     private IUserService userService;
 
+    @Resource
+    private IAdminRoleService adminRoleService;
+
     @RequestMapping("/to-list")
     public String toList(Model model) throws Exception
     {
-      
+        List<Role> roles = adminRoleService.selectAll();
+        model.addAttribute("roles",roles);
         return "User";
     }
 

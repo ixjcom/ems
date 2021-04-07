@@ -18,4 +18,9 @@ public interface IUserService {
     
     
     User selectById(Long id)throws Exception;
+
+    void signIn(String username, String password, String requstIp);
+
+    void signOut();
+
 }

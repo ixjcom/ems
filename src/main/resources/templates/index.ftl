@@ -22,6 +22,7 @@
                     </div>
                     <div class="logo-element">H</div>
                 </li>
+                <@sec.any name="USER_ACCOUNT">
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs"></i>
@@ -29,9 +30,13 @@
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li><a href="/user/to-list" class="J_menuItem">用户账号管理</a></li>
+                        <@sec.any name="USER_ACCOUNT">
+                            <li><a href="/user/to-list" class="J_menuItem">用户账号管理</a></li>
+                        </@sec.any>
+                        <li><a href="/user/to-list" class="J_menuItem">角色管理</a></li>
                     </ul>
                 </li>
+                </@sec.any>
 
                 <li>
                     <a href="#">
@@ -84,16 +89,15 @@
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header" style="width: 97%"><a
-                            class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
-                                class="fa fa-bars"></i> </a>
+                <div class="navbar-header" style="width: 97%"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     <div class="dropdown profile-element" style="float: right">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
-                                <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">刘云朋</strong></span>
+                            <span class="clear">
+                                <span class="block m-t-xs"><strong class="font-bold">刘云朋</strong></span>
                                 <span class="text-muted text-xs block">操作<b class="caret"></b></span>
-                                </span>
+                            </span>
                         </a>
+                        <img src="/css/patterns/header-profile-skin-3.png" width="50px" height="50px">
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li class="divider"></li>
                             <li><a href="logout">loginOut</a>
@@ -120,17 +124,17 @@
                             class="caret"></span>
                 </button>
                 <ul role="menu" class="dropdown-menu dropdown-menu-right">
-                    <li class="J_tabShowActive"><a>关闭当前</a>
+                    <li class="J_tabShowActive"><a>定位当前选项</a>
                     </li>
                     <li class="divider"></li>
-                    <li class="J_tabCloseAll"><a>关闭全部</a>
+                    <li class="J_tabCloseAll"><a>关闭全部选项</a>
                     </li>
-                    <li class="J_tabCloseOther"><a>关闭其他</a>
+                    <li class="J_tabCloseOther"><a>关闭其他选项</a>
                     </li>
                 </ul>
             </div>
             <a href="logout" class="roll-nav roll-right J_tabExit" style="width: 120px"><i
-                        class="fa fa fa-sign-out"></i>退出</a>
+                        class="fa fa fa-sign-out"></i>安全退出</a>
         </div>
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/index_sum" frameborder="0" data-id="index_v1.html" seamless></iframe>
