@@ -2,8 +2,8 @@ $(document).ready(function () {
     $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 
     $("#BusinessBtnSearch").on("click", function () {
-    	$("pageNum").val(1);
-		$("pageSize").val(10);
+    	$("#pageNo").val(1);
+		$("#pageSize").val(10);
         searchBusinessList();
     });
     $("#BusinessBtnCancel").on("click",function () {
@@ -33,24 +33,8 @@ $(document).ready(function () {
         istoday: true
     };
     
-    var saveUpdateTime={
-        elem: "#saveUpdateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
-    var addUpdateTime={
-        elem: "#addUpdateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
     laydate(startUpdateTime);
     laydate(endUpdateTime);
-    laydate(saveUpdateTime);
-    laydate(addUpdateTime);
 
     $("#addBusiness").on("click",function () {
         $("#BusinessAddForm")[0].reset();
@@ -59,7 +43,7 @@ $(document).ready(function () {
     $("#btnAddBusiness").on("click",function () {
     	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 		 if($("#BusinessAddForm").valid()){
-	        post(_rootPath+"business/insert",$("#BusinessAddForm").serialize(),function (result) {
+	        post("/business/insert",$("#BusinessAddForm").serialize(),function (result) {
 	            $("#BusinessAdd").modal('hide');
 	            searchBusinessList();
 	        });
@@ -68,7 +52,7 @@ $(document).ready(function () {
 });
 
 function searchBusinessList() {
-    post(_rootPath+"business/select",$("#BusinessSearchForm").serialize(),function (result) {
+    post("/business/select",$("#BusinessSearchForm").serialize(),function (result) {
         $("#BusinessTbody").setTemplateElement("BusinessTr-template", null, {filter_data: false});
         $("#BusinessTbody").processTemplate(result);
 
@@ -88,7 +72,7 @@ function searchBusinessList() {
 
 //详情
 function searchBusinessDetail(id) {
-    post(_rootPath+"business/search-detail",{"id":id},function (result) {
+    post("/business/search-detail",{"id":id},function (result) {
     		$("#saveId").val(result.data.id);
     		$("#saveUserId").val(result.data.userId);
     		$("#saveFraction").val(result.data.fraction);
@@ -101,7 +85,7 @@ function searchBusinessDetail(id) {
 
 //删除
 function deletePrimaryKeyId(id) {
-    post(_rootPath+"business/delete",{"id":id},function (result) {
+    post("/business/delete",{"id":id},function (result) {
        searchBusinessList();
     });
 }
@@ -111,7 +95,7 @@ function deletePrimaryKeyId(id) {
 function saveUpdate(){
 	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 	if($("#BusinessDetailForm").valid()){
-	    post(_rootPath+"business/update",$("#BusinessDetailForm").serialize(),function (result) {
+	    post("/business/update",$("#BusinessDetailForm").serialize(),function (result) {
 	        $("#BusinessDetail").modal("hide");
 	        searchBusinessList();
 	    });

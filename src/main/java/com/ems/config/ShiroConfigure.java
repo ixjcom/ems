@@ -1,5 +1,8 @@
 package com.ems.config;
 
+import com.ems.dal.example.User;
+import com.ems.dal.example.UserExample;
+import com.ems.dal.mapper.UserMapper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -8,13 +11,19 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.apache.shiro.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class ShiroConfigure extends AuthorizingRealm {
 
+    @Resource
+    private UserMapper userMapper;
+
+    private String salt = Sha256Hash.ALGORITHM_NAME;
+    private String hashAlgorithmName = Sha256Hash.ALGORITHM_NAME;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -32,14 +41,16 @@ public class ShiroConfigure extends AuthorizingRealm {
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
         String username = upToken.getUsername();
 
-       /* AdminUserExample example = new AdminUserExample();
-        example.createCriteria().andUsernameEqualTo(username);
-        List<AdminUser> users = adminUserMapper.selectByExample(example);
+        UserExample example = new UserExample();
+        example.createCriteria().andUserNameEqualTo(username);
+        List<User> users = userMapper.selectByExample(example);
 
         if (CollectionUtils.isEmpty(users)) {
             throw new UnknownAccountException();
         }
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getId(), user.getPassword(), getSaltByteSource(),getName());*/
+        User user = users.get(0);
+
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getId(), user.getPassword(), getSaltByteSource(),getName());
         return null;
     }
 
@@ -50,23 +61,23 @@ public class ShiroConfigure extends AuthorizingRealm {
      * @param hashedPassword 加密后的密码
      * @return 如果密码正确返回true，否则返回false。
      */
-/*    public Boolean checkPassword(String password, String hashedPassword) {
+    public Boolean checkPassword(String password, String hashedPassword) {
         return encryptPassword(password).equals(hashedPassword);
-    }*/
+    }
 
     /**
      * 加密。
      * @param password 待加密的密码
      * @return 返回加密后的密码。
      */
-/*    public String encryptPassword(String password) {
+    public String encryptPassword(String password) {
         return new SimpleHash(hashAlgorithmName, password, getSaltByteSource()).toBase64();
-    }*/
-
-    public static void main(String[] args) {
-        System.out.println(new SimpleHash(Sha256Hash.ALGORITHM_NAME, "123456", ByteSource.Util.bytes(Sha256Hash
-                .ALGORITHM_NAME))
-                .toBase64());
     }
+
+    private ByteSource getSaltByteSource() {
+        return ByteSource.Util.bytes(salt);
+    }
+
+
 
 }

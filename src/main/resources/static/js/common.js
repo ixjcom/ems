@@ -14,7 +14,7 @@ function post(urls, datas, callback) {
                     $(".btn").button("reset");
                     if(result.errorCode == "401") {
                         swal({title:"提示", text:"您没有登录",type:'warning'},function () {
-                            window.parent.location.href=_rootPath+"login";
+                            window.parent.location.href="/login";
                         });
                     }else if(result.errorCode == "403"){
                         swal({title:"提示", text:"您没有权限访问",type:'error'});

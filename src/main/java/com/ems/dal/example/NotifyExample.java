@@ -376,6 +376,66 @@ public class NotifyExample {
             return (Criteria) this;
         }
 
+        public Criteria andReleaseUserIdIsNull() {
+            addCriterion("release_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdIsNotNull() {
+            addCriterion("release_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdEqualTo(Long value) {
+            addCriterion("release_user_id =", value, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdNotEqualTo(Long value) {
+            addCriterion("release_user_id <>", value, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdGreaterThan(Long value) {
+            addCriterion("release_user_id >", value, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("release_user_id >=", value, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdLessThan(Long value) {
+            addCriterion("release_user_id <", value, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("release_user_id <=", value, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdIn(List<Long> values) {
+            addCriterion("release_user_id in", values, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdNotIn(List<Long> values) {
+            addCriterion("release_user_id not in", values, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdBetween(Long value1, Long value2) {
+            addCriterion("release_user_id between", value1, value2, "releaseUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReleaseUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("release_user_id not between", value1, value2, "releaseUserId");
+            return (Criteria) this;
+        }
+
         public Criteria andIsShowIsNull() {
             addCriterion("is_show is null");
             return (Criteria) this;
@@ -433,6 +493,76 @@ public class NotifyExample {
 
         public Criteria andIsShowNotBetween(Integer value1, Integer value2) {
             addCriterion("is_show not between", value1, value2, "isShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIsNull() {
+            addCriterion("content is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIsNotNull() {
+            addCriterion("content is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentEqualTo(String value) {
+            addCriterion("content =", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotEqualTo(String value) {
+            addCriterion("content <>", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentGreaterThan(String value) {
+            addCriterion("content >", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentGreaterThanOrEqualTo(String value) {
+            addCriterion("content >=", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLessThan(String value) {
+            addCriterion("content <", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLessThanOrEqualTo(String value) {
+            addCriterion("content <=", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLike(String value) {
+            addCriterion("content like", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotLike(String value) {
+            addCriterion("content not like", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIn(List<String> values) {
+            addCriterion("content in", values, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotIn(List<String> values) {
+            addCriterion("content not in", values, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentBetween(String value1, String value2) {
+            addCriterion("content between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotBetween(String value1, String value2) {
+            addCriterion("content not between", value1, value2, "content");
             return (Criteria) this;
         }
     }

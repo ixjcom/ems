@@ -3,7 +3,6 @@ package com.ems.controller;
 
 import com.ems.dal.example.Notify;
 import com.ems.from.NotifySearchForm;
-import com.ems.from.UserSearchForm;
 import com.ems.mode.ConsoleResultModel;
 import com.ems.service.INotifyService;
 import com.github.pagehelper.PageInfo;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -72,10 +72,13 @@ public class NotifyCongtroller {
     
     @RequestMapping("insert")
     @ResponseBody
-    public ConsoleResultModel<Integer> insert(UserSearchForm form)throws Exception{
+    public ConsoleResultModel<Integer> insert(NotifySearchForm form)throws Exception{
         ConsoleResultModel<Integer> resultModel = new ConsoleResultModel<>();
         Notify model = new Notify();
         BeanUtils.copyProperties(form, model);
+        model.setReleaseTime(new Date());
+        model.setReleaseUser("admin");
+        model.setReleaseUserId(1l);
         int row = this.notifyService.insert(model);
         if(row<=0){
             resultModel.setSuccess(false);

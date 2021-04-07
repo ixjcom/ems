@@ -2,8 +2,8 @@ $(document).ready(function () {
     $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 
     $("#NotifyBtnSearch").on("click", function () {
-    	$("pageNum").val(1);
-		$("pageSize").val(10);
+    	$("#pageNo").val(1);
+		$("#pageSize").val(10);
         searchNotifyList();
     });
     $("#NotifyBtnCancel").on("click",function () {
@@ -33,24 +33,8 @@ $(document).ready(function () {
         istoday: true
     };
     
-    var saveReleaseTime={
-        elem: "#saveReleaseTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
-    var addReleaseTime={
-        elem: "#addReleaseTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
     laydate(startReleaseTime);
     laydate(endReleaseTime);
-    laydate(saveReleaseTime);
-    laydate(addReleaseTime);
 
     $("#addNotify").on("click",function () {
         $("#NotifyAddForm")[0].reset();
@@ -59,7 +43,7 @@ $(document).ready(function () {
     $("#btnAddNotify").on("click",function () {
     	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 		 if($("#NotifyAddForm").valid()){
-	        post(_rootPath+"notify/insert",$("#NotifyAddForm").serialize(),function (result) {
+	        post("/notify/insert",$("#NotifyAddForm").serialize(),function (result) {
 	            $("#NotifyAdd").modal('hide');
 	            searchNotifyList();
 	        });
@@ -68,7 +52,7 @@ $(document).ready(function () {
 });
 
 function searchNotifyList() {
-    post(_rootPath+"notify/select",$("#NotifySearchForm").serialize(),function (result) {
+    post("/notify/select",$("#NotifySearchForm").serialize(),function (result) {
         $("#NotifyTbody").setTemplateElement("NotifyTr-template", null, {filter_data: false});
         $("#NotifyTbody").processTemplate(result);
 
@@ -88,7 +72,7 @@ function searchNotifyList() {
 
 //详情
 function searchNotifyDetail(id) {
-    post(_rootPath+"notify/search-detail",{"id":id},function (result) {
+    post("/notify/search-detail",{"id":id},function (result) {
     		$("#saveId").val(result.data.id);
     		$("#saveTitle").val(result.data.title);
     		$("#saveReleaseTime").val(new Date(result.data.releaseTime).Format("yyyy-MM-dd"));
@@ -103,7 +87,7 @@ function searchNotifyDetail(id) {
 
 //删除
 function deletePrimaryKeyId(id) {
-    post(_rootPath+"notify/delete",{"id":id},function (result) {
+    post("/notify/delete",{"id":id},function (result) {
        searchNotifyList();
     });
 }
@@ -113,7 +97,7 @@ function deletePrimaryKeyId(id) {
 function saveUpdate(){
 	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 	if($("#NotifyDetailForm").valid()){
-	    post(_rootPath+"notify/update",$("#NotifyDetailForm").serialize(),function (result) {
+	    post("/notify/update",$("#NotifyDetailForm").serialize(),function (result) {
 	        $("#NotifyDetail").modal("hide");
 	        searchNotifyList();
 	    });

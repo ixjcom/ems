@@ -237,62 +237,62 @@ public class UserInfoExample {
         }
 
         public Criteria andPostTypeIsNull() {
-            addCriterion("post__type is null");
+            addCriterion("post_type is null");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeIsNotNull() {
-            addCriterion("post__type is not null");
+            addCriterion("post_type is not null");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeEqualTo(Integer value) {
-            addCriterion("post__type =", value, "postType");
+            addCriterion("post_type =", value, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeNotEqualTo(Integer value) {
-            addCriterion("post__type <>", value, "postType");
+            addCriterion("post_type <>", value, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeGreaterThan(Integer value) {
-            addCriterion("post__type >", value, "postType");
+            addCriterion("post_type >", value, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("post__type >=", value, "postType");
+            addCriterion("post_type >=", value, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeLessThan(Integer value) {
-            addCriterion("post__type <", value, "postType");
+            addCriterion("post_type <", value, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("post__type <=", value, "postType");
+            addCriterion("post_type <=", value, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeIn(List<Integer> values) {
-            addCriterion("post__type in", values, "postType");
+            addCriterion("post_type in", values, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeNotIn(List<Integer> values) {
-            addCriterion("post__type not in", values, "postType");
+            addCriterion("post_type not in", values, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeBetween(Integer value1, Integer value2) {
-            addCriterion("post__type between", value1, value2, "postType");
+            addCriterion("post_type between", value1, value2, "postType");
             return (Criteria) this;
         }
 
         public Criteria andPostTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("post__type not between", value1, value2, "postType");
+            addCriterion("post_type not between", value1, value2, "postType");
             return (Criteria) this;
         }
 

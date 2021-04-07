@@ -2,8 +2,8 @@ $(document).ready(function () {
     $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 
     $("#UserInfoBtnSearch").on("click", function () {
-    	$("pageNum").val(1);
-		$("pageSize").val(10);
+    	$("#pageNo").val(1);
+		$("#pageSize").val(10);
         searchUserInfoList();
     });
     $("#UserInfoBtnCancel").on("click",function () {
@@ -32,25 +32,8 @@ $(document).ready(function () {
         istime: true,
         istoday: true
     };
-    
-    var saveUpdateTime={
-        elem: "#saveUpdateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
-    var addUpdateTime={
-        elem: "#addUpdateTime",
-        format: "YYYY-MM-DD",
-        max: "2099-06-16",
-        istime: true,
-        istoday: true
-    };
     laydate(startUpdateTime);
     laydate(endUpdateTime);
-    laydate(saveUpdateTime);
-    laydate(addUpdateTime);
 
     $("#addUserInfo").on("click",function () {
         $("#UserInfoAddForm")[0].reset();
@@ -59,7 +42,7 @@ $(document).ready(function () {
     $("#btnAddUserInfo").on("click",function () {
     	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 		 if($("#UserInfoAddForm").valid()){
-	        post(_rootPath+"userinfo/insert",$("#UserInfoAddForm").serialize(),function (result) {
+	        post("/userinfo/insert",$("#UserInfoAddForm").serialize(),function (result) {
 	            $("#UserInfoAdd").modal('hide');
 	            searchUserInfoList();
 	        });
@@ -68,7 +51,7 @@ $(document).ready(function () {
 });
 
 function searchUserInfoList() {
-    post(_rootPath+"userinfo/select",$("#UserInfoSearchForm").serialize(),function (result) {
+    post("/userinfo/select",$("#UserInfoSearchForm").serialize(),function (result) {
         $("#UserInfoTbody").setTemplateElement("UserInfoTr-template", null, {filter_data: false});
         $("#UserInfoTbody").processTemplate(result);
 
@@ -88,7 +71,7 @@ function searchUserInfoList() {
 
 //详情
 function searchUserInfoDetail(id) {
-    post(_rootPath+"userinfo/search-detail",{"id":id},function (result) {
+    post("/userinfo/search-detail",{"id":id},function (result) {
     		$("#saveId").val(result.data.id);
     		$("#saveUserId").val(result.data.userId);
     		$("#savePostType").val(result.data.postType);
@@ -102,7 +85,7 @@ function searchUserInfoDetail(id) {
 
 //删除
 function deletePrimaryKeyId(id) {
-    post(_rootPath+"userinfo/delete",{"id":id},function (result) {
+    post("/userinfo/delete",{"id":id},function (result) {
        searchUserInfoList();
     });
 }
@@ -112,7 +95,7 @@ function deletePrimaryKeyId(id) {
 function saveUpdate(){
 	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 	if($("#UserInfoDetailForm").valid()){
-	    post(_rootPath+"userinfo/update",$("#UserInfoDetailForm").serialize(),function (result) {
+	    post("/userinfo/update",$("#UserInfoDetailForm").serialize(),function (result) {
 	        $("#UserInfoDetail").modal("hide");
 	        searchUserInfoList();
 	    });

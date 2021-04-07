@@ -12,6 +12,8 @@ public class Notify implements Serializable {
 
     private String releaseUser;
 
+    private Long releaseUserId;
+
     private Integer isShow;
 
     private String content;
@@ -48,6 +50,14 @@ public class Notify implements Serializable {
 
     public void setReleaseUser(String releaseUser) {
         this.releaseUser = releaseUser;
+    }
+
+    public Long getReleaseUserId() {
+        return releaseUserId;
+    }
+
+    public void setReleaseUserId(Long releaseUserId) {
+        this.releaseUserId = releaseUserId;
     }
 
     public Integer getIsShow() {

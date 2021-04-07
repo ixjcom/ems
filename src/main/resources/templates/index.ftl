@@ -22,7 +22,6 @@
                     </div>
                     <div class="logo-element">H</div>
                 </li>
-
                 <li>
                     <a href="#">
                         <i class="fa fa-cogs"></i>
@@ -44,7 +43,6 @@
                         <li><a href="/notify/to-list" class="J_menuItem">公告管理</a></li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a href="#">

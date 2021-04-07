@@ -90,7 +90,7 @@ $(document).ready(function () {
     $("#btnAddUser").on("click",function () {
     	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 		 if($("#UserAddForm").valid()){
-	        post(_rootPath+"user/insert",$("#UserAddForm").serialize(),function (result) {
+	        post("/user/insert",$("#UserAddForm").serialize(),function (result) {
 	            $("#UserAdd").modal('hide');
 	            searchUserList();
 	        });
@@ -99,7 +99,7 @@ $(document).ready(function () {
 });
 
 function searchUserList() {
-    post(_rootPath+"user/select",$("#UserSearchForm").serialize(),function (result) {
+    post("/user/select",$("#UserSearchForm").serialize(),function (result) {
         $("#UserTbody").setTemplateElement("UserTr-template", null, {filter_data: false});
         $("#UserTbody").processTemplate(result);
 
@@ -119,7 +119,7 @@ function searchUserList() {
 
 //详情
 function searchUserDetail(id) {
-    post(_rootPath+"user/search-detail",{"id":id},function (result) {
+    post("/user/search-detail",{"id":id},function (result) {
     		$("#saveId").val(result.data.id);
     		$("#saveUserName").val(result.data.userName);
     		$("#savePassword").val(result.data.password);
@@ -133,7 +133,7 @@ function searchUserDetail(id) {
 
 //删除
 function deletePrimaryKeyId(id) {
-    post(_rootPath+"user/delete",{"id":id},function (result) {
+    post("/user/delete",{"id":id},function (result) {
        searchUserList();
     });
 }
@@ -143,7 +143,7 @@ function deletePrimaryKeyId(id) {
 function saveUpdate(){
 	 $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
 	if($("#UserDetailForm").valid()){
-	    post(_rootPath+"user/update",$("#UserDetailForm").serialize(),function (result) {
+	    post("/user/update",$("#UserDetailForm").serialize(),function (result) {
 	        $("#UserDetail").modal("hide");
 	        searchUserList();
 	    });

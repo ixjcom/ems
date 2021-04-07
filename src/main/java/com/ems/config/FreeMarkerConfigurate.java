@@ -1,15 +1,18 @@
 package com.ems.config;
 
+import com.jagregory.shiro.freemarker.ShiroTags;
+import freemarker.template.TemplateException;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
 
-@Configuration
+@Component
 public class FreeMarkerConfigurate {
 
     @Value("${ems.version:}")
@@ -19,7 +22,7 @@ public class FreeMarkerConfigurate {
     private String emsSystemName;
 
     @Bean
-    public FreeMarkerConfigurer freeMarkerConfigurer(){
+    public FreeMarkerConfigurer freeMarkerConfigurer() throws IOException, TemplateException {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:/templates/");
 
@@ -43,7 +46,16 @@ public class FreeMarkerConfigurate {
         Map<String, Object> variables = new HashedMap();
         variables.put("version",version);
         variables.put("emsSystemName",emsSystemName);
+        //variables.put("shiro", new ShiroTags());
         freeMarkerConfigurer.setFreemarkerVariables(variables);
+
+        freemarker.template.Configuration configuration = freeMarkerConfigurer.createConfiguration();
+        configuration.setSharedVariable("shiro", new ShiroTags());//shiro标签
+        configuration.addAutoInclude("/macros/security.ftl");
+        configuration.addAutoImport("s", "/macros/mvc.ftl");
+        configuration.addAutoImport("sec", "/macros/sec.ftl");
+        freeMarkerConfigurer.setConfiguration(configuration);
+
         return freeMarkerConfigurer;
 
     }

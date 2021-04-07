@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped text-nowrap">
                         <thead>
                         <tr>
                                 <th>编号</th>
@@ -151,37 +151,37 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">id:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="id" id="saveId" required="" minlength="2" class="form-control" placeholder="请输入id">
+                        <input type="text" name="id" id="saveId" required=""  class="form-control" placeholder="请输入id">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">用户名:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="userName" id="saveUserName" required="" minlength="2" class="form-control" placeholder="请输入用户名">
+                        <input type="text" name="userName" id="saveUserName" required=""  class="form-control" placeholder="请输入用户名">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">密码:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="password" id="savePassword" required="" minlength="2" class="form-control" placeholder="请输入密码">
+                        <input type="text" name="password" id="savePassword" required=""  class="form-control" placeholder="请输入密码">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">手机号:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="mobil" id="saveMobil" required="" minlength="2" class="form-control" placeholder="请输入手机号">
+                        <input type="text" name="mobil" id="saveMobil" required=""  class="form-control" placeholder="请输入手机号">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">创建时间:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="createTime" id="saveCreateTime" required="" minlength="2" class="form-control" placeholder="请输入创建时间">
+                        <input type="text" name="createTime" id="saveCreateTime" required=""  class="form-control" placeholder="请输入创建时间">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">更新时间:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="updateTime" id="saveUpdateTime" required="" minlength="2" class="form-control" placeholder="请输入更新时间">
+                        <input type="text" name="updateTime" id="saveUpdateTime" required=""  class="form-control" placeholder="请输入更新时间">
                     </div>
                 </div>
             <div class="hr-line-dashed"></div>
@@ -295,7 +295,7 @@
 <script src="/js/summernote/summernote-zh-CN.js"></script>
 <script src="/js/currencyUtil.js"></script>
 <script src="/js/page.js"></script>
-<script src="/js/user/UserScript.js?v=1"></script>
+<script src="/js/UserScript.js?v=1"></script>
 </body>
 
 </html>

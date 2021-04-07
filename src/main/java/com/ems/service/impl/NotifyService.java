@@ -55,9 +55,6 @@ public class NotifyService implements INotifyService {
         if(form.getEndReleaseTime()!=null){
           	criteria.andReleaseTimeLessThan(form.getEndReleaseTime());
         }
-        if(form.getReleaseUser()!=null){
-          	criteria.andReleaseUserEqualTo(form.getReleaseUser());
-        }
         if(form.getIsShow()!=null){
           	criteria.andIsShowEqualTo(form.getIsShow());
         }
