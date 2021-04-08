@@ -11,6 +11,7 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="permissions" property="permissions" jdbcType="VARCHAR" />
     <result column="role_id" property="roleId" jdbcType="BIGINT" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +73,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, user_name, password, mobil, login_ip, create_time, update_time, permissions, 
-    role_id
+    role_id, image
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ems.dal.example.UserExample" >
     select
@@ -110,12 +111,12 @@
   <insert id="insert" parameterType="com.ems.dal.example.User" >
     insert into tb_user (id, user_name, password, 
       mobil, login_ip, create_time, 
-      update_time, permissions, role_id
-      )
+      update_time, permissions, role_id, 
+      image)
     values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{mobil,jdbcType=VARCHAR}, #{loginIp,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{permissions,jdbcType=VARCHAR}, #{roleId,jdbcType=BIGINT}
-      )
+      #{updateTime,jdbcType=TIMESTAMP}, #{permissions,jdbcType=VARCHAR}, #{roleId,jdbcType=BIGINT}, 
+      #{image,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ems.dal.example.User" >
     insert into tb_user
@@ -147,6 +148,9 @@
       <if test="roleId != null" >
         role_id,
       </if>
+      <if test="image != null" >
+        image,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -175,6 +179,9 @@
       </if>
       <if test="roleId != null" >
         #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -214,11 +221,9 @@
       <if test="record.roleId != null" >
         role_id = #{record.roleId,jdbcType=BIGINT},
       </if>
-
       <if test="record.image != null" >
-        role_id = #{record.image,jdbcType=VARCHAR},
+        image = #{record.image,jdbcType=VARCHAR},
       </if>
-
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -234,7 +239,8 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       permissions = #{record.permissions,jdbcType=VARCHAR},
-      role_id = #{record.roleId,jdbcType=BIGINT}
+      role_id = #{record.roleId,jdbcType=BIGINT},
+      image = #{record.image,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -281,7 +287,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       permissions = #{permissions,jdbcType=VARCHAR},
-      role_id = #{roleId,jdbcType=BIGINT}
+      role_id = #{roleId,jdbcType=BIGINT},
+      image = #{image,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

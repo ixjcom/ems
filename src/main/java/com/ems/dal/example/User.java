@@ -26,14 +26,6 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public Long getId() {
         return id;
     }
@@ -104,5 +96,13 @@ public class User implements Serializable {
 
     public void setRoleId(Long roleId) {
         this.roleId = roleId;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
