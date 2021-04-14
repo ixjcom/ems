@@ -8,6 +8,7 @@
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/css/style.min862f.css?v=4.1.0" rel="stylesheet">
     <link href="/css/dropzone/dropzone.css" rel="stylesheet">
+    <link href="/css/sweetalert/sweetalert.css" rel="stylesheet">
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
 <div id="wrapper">
@@ -131,8 +132,8 @@
                             <li><a href="javascript:updateImage();">修改头像</a></li>
                         </ul>
                     </div>
-                    <div class="dropdown profile-element" style="margin-right: 20px;border-radius: 30px">
-                        <img src="/image/${user.image!""}" width="50px" height="50px" id="userImage">
+                    <div class="dropdown profile-element" style="margin-right: 20px;border-radius: 30px;float: right;">
+                        <img src="${user.image!""}" width="50px" height="50px" id="userImage">
                     </div>
                 </div>
             </nav>
@@ -145,7 +146,7 @@
                     <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">通知</a>
                 </div>
             </nav>
-            <button class="roll-nav roll-right J_tabRight" style="right:372px"><i class="fa fa-forward"></i>
+            <button class="roll-nav roll-right J_tabRight" style="right:280px"><i class="fa fa-forward"></i>
             </button>
 
             <div class="btn-group roll-nav roll-right">
@@ -293,7 +294,7 @@
     $("#btnSaveUpdateImage").click(function () {
         post("/user/updateImage", $("#updateImageForm").serialize(), function (result) {
             swal({title: "提示", text: "操作成功", type: 'success'}, function () {
-                $("#updateImage").attr("src", result.data);
+                $("#userImage").attr("src", result.data);
                 $("#updateImageModal").modal('hide');
             });
         });

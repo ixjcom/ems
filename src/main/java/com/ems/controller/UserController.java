@@ -12,7 +12,7 @@ import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.ClassUtils;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -112,8 +112,8 @@ public class UserController{
     @RequestMapping("updateImage")
     @ResponseBody
     public ConsoleResultModel updateImage(UserSearchForm form){
-        ConsoleResultModel<Integer> integerConsoleResultModel = new ConsoleResultModel<>();
-        userService.updateImage(form);
+        ConsoleResultModel<String> integerConsoleResultModel = new ConsoleResultModel<>();
+        integerConsoleResultModel.setData(userService.updateImage(form));
         return integerConsoleResultModel;
     }
 
@@ -121,15 +121,24 @@ public class UserController{
     @RequestMapping("upload")
     @ResponseBody
     public ConsoleResultModel<String> uploadImage(@RequestParam(value = "file") MultipartFile file) throws IOException {
-        String path = ClassUtils.getDefaultClassLoader().getResource("").getPath();
+        String path = ResourceUtils.getURL("classpath:").getPath()+"static/upload";
         String s = UUID.randomUUID().toString();
         String originalFilename = file.getOriginalFilename();
         int i = originalFilename.lastIndexOf(".");
         String substring = originalFilename.substring(i);
-        File file1 = new File(path + "static/image/" + s + substring);
+        String mkdir = path + "/image/" + s;
+        File file2 = new File(mkdir);
+        if (!file2.exists()){
+            file2.mkdirs();
+        }
+
+
+        File file1 = new File( mkdir+ substring);
+        if (!file1.exists())
+                file1.createNewFile();
         file.transferTo(file1);
         ConsoleResultModel<String> stringConsoleResultModel = new ConsoleResultModel<>();
-        stringConsoleResultModel.setData("/static/image/" + s + substring);
+        stringConsoleResultModel.setData("/upload/image/" + s + substring);
         return stringConsoleResultModel;
     }
 }

@@ -161,12 +161,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void updateImage(UserSearchForm form) {
+    public String updateImage(UserSearchForm form) {
         User currentUser = getCurrentUser();
         User user = new User();
         user.setId(currentUser.getId());
         user.setImage(form.getImage());
         userMapper.updateByPrimaryKeySelective(user);
+        return form.getImage();
     }
 
     @Override

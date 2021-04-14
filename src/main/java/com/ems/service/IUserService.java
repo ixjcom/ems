@@ -27,5 +27,5 @@ public interface IUserService {
 
     public User getCurrentUser();
 
-    void updateImage(UserSearchForm form);
+    String updateImage(UserSearchForm form);
 }
