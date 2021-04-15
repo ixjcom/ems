@@ -7,12 +7,13 @@ import com.ems.from.UserSearchForm;
 import com.ems.mode.ConsoleResultModel;
 import com.ems.service.IAdminRoleService;
 import com.ems.service.IUserService;
+import com.ems.util.SystemDir;
 import com.github.pagehelper.PageInfo;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -121,19 +122,17 @@ public class UserController{
     @RequestMapping("upload")
     @ResponseBody
     public ConsoleResultModel<String> uploadImage(@RequestParam(value = "file") MultipartFile file) throws IOException {
-        String path = ResourceUtils.getURL("classpath:").getPath()+"static/upload";
         String s = UUID.randomUUID().toString();
         String originalFilename = file.getOriginalFilename();
         int i = originalFilename.lastIndexOf(".");
         String substring = originalFilename.substring(i);
-        String mkdir = path + "/image/" + s;
+        String mkdir = SystemDir.getSystemDir() + File.separator;
         File file2 = new File(mkdir);
         if (!file2.exists()){
             file2.mkdirs();
         }
 
-
-        File file1 = new File( mkdir+ substring);
+        File file1 = new File( mkdir,s+substring);
         if (!file1.exists())
                 file1.createNewFile();
         file.transferTo(file1);

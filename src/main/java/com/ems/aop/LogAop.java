@@ -17,7 +17,7 @@ public class LogAop {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Around("execution(* com.ems.controller..*Controller.*(..))")
-    public Object doAround(ProceedingJoinPoint proceedingJoinPoint, RequestMapping rm) throws Throwable {
+    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         return getObject(proceedingJoinPoint);
     }
 

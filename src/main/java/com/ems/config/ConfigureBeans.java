@@ -60,11 +60,9 @@ public class ConfigureBeans {
         // 静态资源的处理
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");
-        filterChainDefinitionMap.put("/img/**", "anon");
+        filterChainDefinitionMap.put("/image/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
-        filterChainDefinitionMap.put("/plugins/**", "anon");
-//		// 请求路径的处理
-        filterChainDefinitionMap.put("/H-PLE/**", "authc");
+        filterChainDefinitionMap.put("/upload/image/**", "anon");
 
         // 退出系统的过滤器
         filterChainDefinitionMap.put("/userInfo/logout", "logout");
