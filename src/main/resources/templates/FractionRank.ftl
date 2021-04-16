@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/image/favicon.ico">
     <link href="/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="/css/iCheck/custom.css" rel="stylesheet">

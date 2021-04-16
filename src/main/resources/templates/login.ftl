@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>bootstrap案例</title>
+    <title>ems</title>
     <!--用百度的静态资源库的cdn安装bootstrap环境-->
     <!-- Bootstrap 核心 CSS 文件 -->
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -12,6 +12,7 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
     <!-- Bootstrap 核心 JavaScript 文件 -->
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="/image/favicon.ico">
     <!--jquery.validate-->
     <style type="text/css">
         body {
