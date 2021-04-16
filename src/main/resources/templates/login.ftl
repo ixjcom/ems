@@ -1,68 +1,88 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <meta charset="utf-8"/>
+    <title>bootstrap案例</title>
+    <!--用百度的静态资源库的cdn安装bootstrap环境-->
+    <!-- Bootstrap 核心 CSS 文件 -->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!--font-awesome 核心我CSS 文件-->
+    <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 在bootstrap.min.js 之前引入 -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!--jquery.validate-->
+    <style type="text/css">
+        body {
+            background: url(/image/6.png);
+            background-size: 100% 100%;
+            background-attachment: fixed
+        }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+        .form {
+            background: rgba(255, 255, 255, 0.2);
+            width: 600px;
+            margin: 250px auto;
+        }
 
-    <title>登录</title>
+        #login_form {
+            display: block;
+        }
 
-    <link href="/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-    <link href="/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-    <link href="/css/animate.min.css" rel="stylesheet">
-    <link href="/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+        #register_form {
+            display: none;
+        }
 
+        .fa {
+            display: inline-block;
+            top: 27px;
+            left: 6px;
+            position: relative;
+            color: #ccc;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding-left: 26px;
+        }
+
+        .checkbox {
+            padding-left: 21px;
+        }
+    </style>
 </head>
-
-<body class="gray-bg">
-
-<div class="middle-box text-center loginscreen  animated fadeInDown">
-    <div>
-        <div>
-            <img src="/image/a11.png" style="margin-top: 60%" />
+<body>
+<div class="container">
+    <div class="form row">
+        <div class="col-sm-6 col-md-6">
+            <img src="/image/7.png" width="100%"/>
         </div>
-        <h3>欢迎</h3>
-
-        <form class="m-t" role="form" action="login-auth" method="post">
-                <input type="hidden" name="systemType" id="systemType">
-            <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="用户名" required="">
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="密码" required="">
-            </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">登录 </button>
-        </form>
+        <div class="col-sm-6 col-md-6" style="margin-top: 2%;">
+            <span style="width: 100%;color: white;font-size: 30px;margin-left: 15%;">河南光明银行</span>
+            <hr style="width: 100%;background-color: white;margin: 0;"/>
+            <span style="width: 100%;color: white;margin-left: 10%;">GUANG MING BANK OF HENAN</span>
+            <form class="m-t" role="form" action="login-auth" method="post">
+                <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <i class="fa fa-user fa-lg"></i>
+                        <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus"/>
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-lock fa-lg"></i>
+                        <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success form-control" value="Sign Up "/>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+</body>
+
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-
-<script>
-$(document).ready(function () {
-
-    var system ={
-        win : false,
-        mac : false,
-        xll : false
-    };
-    //检测平台
-    var p = navigator.platform;
-    system.win = p.indexOf("Win") == 0;
-    system.mac = p.indexOf("Mac") == 0;
-    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
-    if(!(system.win||system.mac||system.xll)){
-
-    }
-
-
-$("#locale").on("change",function(){
-		window.location.href="/login?locale="+$("#locale").val();
-	})
-});
-</script>
-</body>
-
 </html>
