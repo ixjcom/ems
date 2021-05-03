@@ -74,7 +74,11 @@
                                 <div class="form-group">
                                     <label class="col-sm-6 control-label">是否显示：</label>
                                     <div class="col-sm-6">
-                                        <input type="text" name="isShow" class="form-control" placeholder="请输入是否显示">
+                                        <select name="isShow" class="form-control">
+                                            <option value="">all</option>
+                                            <option value="1">显示</option>
+                                            <option value="0">隐藏</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -125,9 +129,6 @@
                                 <th>发布者名称</th>
                                 <th>发布者内容</th>
                                 <th>发布时间</th>
-                                <@sec.any name="NOTIFY_DELETE,NOTIFY_UPDATE">
-                                <th>操作</th>
-                                </@sec.any>
                             </tr>
                             </thead>
                             <tbody id="NotifyTbody">
@@ -165,7 +166,11 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">是否显示:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="isShow" id="addIsShow" required class="form-control" placeholder="请输入是否显示">
+                            <select name="isShow" class="form-control">
+                                <option value="">all</option>
+                                <option value="1">显示</option>
+                                <option value="0">隐藏</option>
+                            </select>
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -201,16 +206,6 @@
                         <td>{$T.record.releaseUserId}</td>
                         <td>{$T.record.releaseUser}</td>
                         <td>{new Date($T.record.releaseTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
-                <@sec.any name="NOTIFY_DELETE,NOTIFY_UPDATE">
-                    <td>
-                        <@sec.any name="NOTIFY_UPDATE">
-                        <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-primary btnNotifyDetail">详情</button>
-                        </@sec.any>
-                        <@sec.any name="NOTIFY_DELETE">
-                        <button type="button" primaryKeyId="{$T.record.id}" class="btn btn-danger btnNotifyDelete">删除</button>
-                        </@sec.any>
-                    </td>
-                </@sec.any>
             </tr>
         {#/foreach}
     {#else}

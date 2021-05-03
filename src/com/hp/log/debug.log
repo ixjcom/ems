@@ -1,0 +1,70 @@
+2021-05-03 19:09:44 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Retrieving column information for table "tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "id", data type -5, in table "ems..tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "user_id", data type -5, in table "ems..tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "post_type", data type 4, in table "ems..tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "login_count", data type 4, in table "ems..tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "login_ip", data type 12, in table "ems..tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "update_time", data type 93, in table "ems..tb_user_info"
+2021-05-03 19:09:45 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "image", data type 12, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Retrieving column information for table "tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "id", data type -5, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "user_id", data type -5, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "post_type", data type 4, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "login_count", data type 4, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "login_ip", data type 12, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "update_time", data type 93, in table "ems..tb_user_info"
+2021-05-03 19:10:39 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "image", data type 12, in table "ems..tb_user_info"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Retrieving column information for table "tb_salary"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "id", data type -5, in table "ems..tb_salary"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "role_id", data type -5, in table "ems..tb_salary"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "salary", data type 3, in table "ems..tb_salary"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "create_time", data type 93, in table "ems..tb_salary"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "role_name", data type 12, in table "ems..tb_salary"
+2021-05-03 20:31:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "update_time", data type 93, in table "ems..tb_salary"
+2021-05-03 21:39:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Retrieving column information for table "tb_business"
+2021-05-03 21:39:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "id", data type -5, in table "ems..tb_business"
+2021-05-03 21:39:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "user_id", data type -5, in table "ems..tb_business"
+2021-05-03 21:39:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "fraction", data type 3, in table "ems..tb_business"
+2021-05-03 21:39:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "business_count", data type 4, in table "ems..tb_business"
+2021-05-03 21:39:31 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "update_time", data type 93, in table "ems..tb_business"
+2021-05-03 21:41:17 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Retrieving column information for table "tb_business"
+2021-05-03 21:41:17 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "id", data type -5, in table "ems..tb_business"
+2021-05-03 21:41:17 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "user_id", data type -5, in table "ems..tb_business"
+2021-05-03 21:41:17 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "fraction", data type 3, in table "ems..tb_business"
+2021-05-03 21:41:17 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "business_count", data type 4, in table "ems..tb_business"
+2021-05-03 21:41:17 下午 [Thread: main][ Class:org.mybatis.generator.internal.db.DatabaseIntrospector >> Method: org.mybatis.generator.logging.Log4jImpl.debug(Log4jImpl.java:46) ]
+DEBUG:Found column "update_time", data type 93, in table "ems..tb_business"

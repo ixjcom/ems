@@ -102,7 +102,7 @@
                             <thead>
                             <tr>
                                 <th>编号</th>
-                                <th>用户编号</th>
+                                <th>用户名</th>
                                 <th>分数</th>
                                 <th>业务次数</th>
                                 <th>更新时间</th>
@@ -140,7 +140,11 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">用户编号:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="userId" id="saveUserId" required="" class="form-control" placeholder="请输入用户编号">
+                            <select  name="userId" id="saveUserId" class="form-control">
+                                <#list users as e>
+                                    <option value="${e.id}">${e.userName}</option>
+                                </#list>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -180,6 +184,11 @@
                         <label class="col-sm-2 control-label">用户编号:</label>
                         <div class="col-sm-10">
                             <input type="text" name="userId" id="addUserId" required class="form-control" placeholder="请输入用户编号">
+                            <select  name="userId" id="addUserId" class="form-control">
+                                <#list users as e>
+                                    <option value="${e.id}">${e.userName}</option>
+                                </#list>
+                            </select>
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -216,7 +225,15 @@
         {#foreach $T.data.list as record}
             <tr>
                         <td>{$T.record.id}</td>
-                        <td>{$T.record.userId}</td>
+                        <td>
+                            {#if $T.record.userId!=null}
+                                <#list users as e>
+                                    {#if ${e.id}==$T.record.userId}
+                                        ${e.userName}
+                                    {#/if}
+                                </#list>
+                            {#/if}
+                        </td>
                         <td>{$T.record.fraction}</td>
                         <td>{$T.record.businessCount}</td>
                         <td>{new Date($T.record.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>

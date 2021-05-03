@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-    <classPathEntry location="D:\meijia\ems\src\main\resources\mybatisgenerator\mysql-connector-java-5.1.35-bin.jar" />
+    <classPathEntry location="D:\IdeaProjects\ems\src\main\resources\mybatisgenerator\mysql-connector-java-5.1.35-bin.jar" />
     <context id="context1" >
         <plugin type="com.ems.dal.ModelExampleLimitPlugin" />
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
@@ -16,9 +16,5 @@
     	<sqlMapGenerator targetPackage="com.ems.dal.mapper" targetProject="src/main/java" />
     	<javaClientGenerator targetPackage="com.ems.dal.mapper" targetProject="src/main/java" type="XMLMAPPER" />
         <table schema="" tableName="tb_business" domainObjectName="Business"/>
-        <table schema="" tableName="tb_notify" domainObjectName="Notify"/>
-        <table schema="" tableName="tb_role" domainObjectName="Role"/>
-        <table schema="" tableName="tb_user" domainObjectName="User"/>
-        <table schema="" tableName="tb_user_info" domainObjectName="UserInfo"/>
    </context>
 </generatorConfiguration>

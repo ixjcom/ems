@@ -1,6 +1,7 @@
 package com.ems.dal.example;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Business implements Serializable {
@@ -8,7 +9,7 @@ public class Business implements Serializable {
 
     private Long userId;
 
-    private Integer fraction;
+    private BigDecimal fraction;
 
     private Integer businessCount;
 
@@ -32,11 +33,11 @@ public class Business implements Serializable {
         this.userId = userId;
     }
 
-    public Integer getFraction() {
+    public BigDecimal getFraction() {
         return fraction;
     }
 
-    public void setFraction(Integer fraction) {
+    public void setFraction(BigDecimal fraction) {
         this.fraction = fraction;
     }
 

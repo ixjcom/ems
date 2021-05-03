@@ -58,7 +58,12 @@ public class NotifyService implements INotifyService {
         if(form.getIsShow()!=null){
           	criteria.andIsShowEqualTo(form.getIsShow());
         }
-      
+        if (StringUtils.isNotBlank(form.getContent())){
+            criteria.andContentNotLike(form.getContent());
+        }
+        if (form.getReleaseUserId()!=null){
+            criteria.andReleaseUserIdEqualTo(form.getReleaseUserId());
+        }
         example.setOrderByClause("id desc");
         return notifyMapper.selectByExample(example);
     }

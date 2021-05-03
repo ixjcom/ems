@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.ems.dal.example.Business" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="user_id" property="userId" jdbcType="BIGINT" />
-    <result column="fraction" property="fraction" jdbcType="INTEGER" />
+    <result column="fraction" property="fraction" jdbcType="DECIMAL" />
     <result column="business_count" property="businessCount" jdbcType="INTEGER" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -105,7 +105,7 @@
   <insert id="insert" parameterType="com.ems.dal.example.Business" >
     insert into tb_business (id, user_id, fraction, 
       business_count, update_time)
-    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{fraction,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{fraction,jdbcType=DECIMAL}, 
       #{businessCount,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.ems.dal.example.Business" >
@@ -135,7 +135,7 @@
         #{userId,jdbcType=BIGINT},
       </if>
       <if test="fraction != null" >
-        #{fraction,jdbcType=INTEGER},
+        #{fraction,jdbcType=DECIMAL},
       </if>
       <if test="businessCount != null" >
         #{businessCount,jdbcType=INTEGER},
@@ -161,7 +161,7 @@
         user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.fraction != null" >
-        fraction = #{record.fraction,jdbcType=INTEGER},
+        fraction = #{record.fraction,jdbcType=DECIMAL},
       </if>
       <if test="record.businessCount != null" >
         business_count = #{record.businessCount,jdbcType=INTEGER},
@@ -178,7 +178,7 @@
     update tb_business
     set id = #{record.id,jdbcType=BIGINT},
       user_id = #{record.userId,jdbcType=BIGINT},
-      fraction = #{record.fraction,jdbcType=INTEGER},
+      fraction = #{record.fraction,jdbcType=DECIMAL},
       business_count = #{record.businessCount,jdbcType=INTEGER},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -192,7 +192,7 @@
         user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="fraction != null" >
-        fraction = #{fraction,jdbcType=INTEGER},
+        fraction = #{fraction,jdbcType=DECIMAL},
       </if>
       <if test="businessCount != null" >
         business_count = #{businessCount,jdbcType=INTEGER},
@@ -206,7 +206,7 @@
   <update id="updateByPrimaryKey" parameterType="com.ems.dal.example.Business" >
     update tb_business
     set user_id = #{userId,jdbcType=BIGINT},
-      fraction = #{fraction,jdbcType=INTEGER},
+      fraction = #{fraction,jdbcType=DECIMAL},
       business_count = #{businessCount,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

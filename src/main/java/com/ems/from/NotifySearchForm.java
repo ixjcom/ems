@@ -39,6 +39,16 @@ public class NotifySearchForm extends PageSearchForm implements Serializable{
     private Date releaseTime;
 
 
+    private Long releaseUserId;
+
+    public Long getReleaseUserId() {
+        return releaseUserId;
+    }
+
+    public void setReleaseUserId(Long releaseUserId) {
+        this.releaseUserId = releaseUserId;
+    }
+
     public Long getId() {
         return id;
     }

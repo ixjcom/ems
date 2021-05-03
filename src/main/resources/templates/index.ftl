@@ -108,6 +108,23 @@
                         </ul>
                     </li>
                 </@sec.any>
+                <@sec.any name="SALARY_MANAGERENT">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">薪水管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <@sec.any name="SAYARY_PROPERTIES">
+                                <li><a href="/salary/to-list" class="J_menuItem">薪水配置</a></li>
+                            </@sec.any>
+                            <@sec.any name="SAYARY_SELECT">
+                                <li><a href="/salaryselect/to-list" class="J_menuItem">薪水查询</a></li>
+                            </@sec.any>
+                        </ul>
+                    </li>
+                </@sec.any>
             </ul>
         </div>
     </nav>
@@ -246,7 +263,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                <button type="button" id="btnSaveUpdateImage"  class="btn btn-primary">保存</button>
+                <button type="button" id="btnSaveUpdateImage" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>

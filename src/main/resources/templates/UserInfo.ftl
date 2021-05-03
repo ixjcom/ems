@@ -41,14 +41,6 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="col-sm-6 control-label">职务类型：</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="postType" class="form-control" placeholder="请输入职务类型">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
                                     <label class="col-sm-6 control-label">登录次数：</label>
                                     <div class="col-sm-6">
                                         <input type="text" name="loginCount" class="form-control" placeholder="请输入登录次数">
@@ -96,21 +88,13 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <@sec.any name="USER_INFO_ADD">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <button type="button" class="btn btn-success " id="addUserInfo">
-                                    <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">新增</span>
-                                </button>
-                            </div>
-                        </div>
-                    </@sec.any>
                     <div class="table-responsive">
                         <table class="table table-striped text-nowrap">
                             <thead>
                             <tr>
                                 <th>编号</th>
                                 <th>用户编号</th>
+                                <th>头像</th>
                                 <th>职位类型</th>
                                 <th>登录次数</th>
                                 <th>登录IP</th>
@@ -131,75 +115,6 @@
         </div>
     </div>
 </div>
-<#--
-
-<!-- 修改弹框 &ndash;&gt;
-<div class="modal inmodal" id="UserInfoDetail" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content animated fadeIn">
-            <div class="modal-header" style="height: 20px;">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" style="font-size: 22px;">详情</h4>
-            </div>
-            <div class="modal-body">
-                <form id="UserInfoDetailForm" method="post" class="form-horizontal">
-                    <input type="hidden" name="id" id="saveId" required="" class="form-control" placeholder="请输入编号">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">用户编号:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="userId" readonly id="saveUserId"  class="form-control" placeholder="请输入用户编号">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">职务类型:</label>
-                        <div class="col-sm-10">
-                            <select name="postType" id="savePostType" class="form-control">
-                                <#list roles as e>
-                                    <option value="${e.id}">${e.name}</option>
-                                </#list>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                <button type="button" id="btnSaveUpdate" class="btn btn-primary">保存</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 新增弹框 &ndash;&gt;
-<div class="modal inmodal" id="UserInfoAdd" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content animated fadeIn">
-            <div class="modal-header" style="height: 20px;">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" style="font-size: 22px;">新增</h4>
-            </div>
-            <div class="modal-body">
-                <form id="UserInfoAddForm" method="post" class="form-horizontal">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">用户编号:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="userId" id="addUserId" required class="form-control" placeholder="请输入用户编号">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 col-sm-offset-2">
-                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                            <button class="btn btn-primary" id="btnAddUserInfo" data-loading-text="正在保存..." type="button">保存</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
--->
-
 <#include "/page.ftl"/>
 
 <textarea id="UserInfoTr-template" style="display: none;">
@@ -208,6 +123,10 @@
             <tr>
                         <td>{$T.record.id}</td>
                         <td>{$T.record.userId}</td>
+                        <td>{#if $T.record.image!=null && $T.record.image!=''}
+                                <img src="{$T.record.image}" width="50px" height="50px">
+                            {#/if}
+                        </td>
                         <td>
                             <#list roles as e>
                                 {#if ${e.id}==$T.record.postType}

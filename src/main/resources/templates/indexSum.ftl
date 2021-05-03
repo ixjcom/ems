@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>通知</title>
-    <link rel="shortcut icon" href="/image/favicon.ico">
-    <link href="/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-    <link href="/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-    <link href="/css/iCheck/custom.css" rel="stylesheet">
-    <link href="/css/animate.min.css" rel="stylesheet">
-    <link href="/css/style.min862f.css?v=4.1.0" rel="stylesheet">
-    <link href="/css/page.css" rel="stylesheet">
-    <link href="/css/sweetalert/sweetalert.css" rel="stylesheet">
-    <link href="/css/dropzone/dropzone.css" rel="stylesheet">
-    <link href="/css/summernote/summernote.css" rel="stylesheet">
-    <link href="/css/summernote/summernote-bs3.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/css/layui.css" media="all">
 </head>
 <body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;"></fieldset>
 
+<ul class="layui-timeline">
+    <#list notifys as e>
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis"></i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title">${e.releaseTime?string("yyyy年MM月dd日 HH:mm:ss")}</h3>
+                <fieldset class="layui-elem-field">
+                    <legend>${e.title}</legend>
+                    <div class="layui-field-box">
+                        ${e.content}
+                        <br/>
+                        <p style="float: right">发布人:${e.releaseUser}</p>
+                    </div>
+                </fieldset>
+            </div>
+        </li>
+    </#list>
+</ul>
+
+
+<script src="/js/layui.js" charset="utf-8"></script>
 <script>
-    var _rootPath="/";
 </script>
-<script src="/js/jquery.min.js?v=2.1.4"></script>
-<script src="/js/bootstrap.min.js?v=3.3.6"></script>
-<script src="/js/validate/jquery.validate.min.js"></script>
-<script src="/js/content.min.js?v=1.0.0"></script>
-<script src="/js/icheck.min.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/jquery-jtemplates.js"></script>
-<script src="/js/sweetalert/sweetalert.min.js"></script>
-<script src="/js/dateutil.js"></script>
-<script src="/js/layer/laydate/laydate.js"></script>
-<script src="/js/dropzone/dropzone.js"></script>
-<script src="/js/summernote/summernote.min.js"></script>
-<script src="/js/summernote/summernote-zh-CN.js"></script>
-<script src="/js/currencyUtil.js"></script>
-<script src="/js/page.js"></script>
-</body>
 
+</body>
 </html>

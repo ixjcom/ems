@@ -1,22 +1,20 @@
 package com.ems.service.impl;
 
 import com.ems.config.ShiroConfigure;
-import com.ems.dal.example.User;
-import com.ems.dal.example.UserExample;
-import com.ems.dal.example.UserInfo;
-import com.ems.dal.example.UserInfoExample;
+import com.ems.dal.example.*;
 import com.ems.dal.mapper.UserInfoMapper;
 import com.ems.dal.mapper.UserMapper;
 import com.ems.from.UserSearchForm;
+import com.ems.service.IAdminRoleService;
 import com.ems.service.IUserService;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -36,20 +34,24 @@ public class UserService implements IUserService {
     @Resource
     private UserInfoMapper userInfoMapper;
 
+    @Resource
+    private IAdminRoleService adminRoleService;
+
     @Override
     public int insert(User user) throws Exception
     {
         String s = shiroConfigure.encryptPassword(user.getPassword());
         user.setPassword(s);
 
-        if (StringUtils.isNotEmpty(user.getUserName())){
+        if (StringUtils.isEmpty(user.getUserName())){
             user.setUserName(UUID.randomUUID().toString().substring(0,20));
         }
 
         if (user.getRoleId()==null){
             user.setRoleId(4l);
         }
-
+        Role role = adminRoleService.selectById(user.getRoleId());
+        user.setPermissions(role.getPermissions());
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria().andUserNameEqualTo(user.getUserName());
 
@@ -105,7 +107,7 @@ public class UserService implements IUserService {
           	criteria.andUpdateTimeLessThanOrEqualTo(form.getEndUpdateTime());
         }
       
-       
+        example.setOrderByClause("id desc");
         return userMapper.selectByExample(example);
     }
 
@@ -167,6 +169,15 @@ public class UserService implements IUserService {
         user.setId(currentUser.getId());
         user.setImage(form.getImage());
         userMapper.updateByPrimaryKeySelective(user);
+
+        UserInfoExample example = new UserInfoExample();
+        example.createCriteria().andUserIdEqualTo(user.getId());
+        List<UserInfo> userInfos = userInfoMapper.selectByExample(example);
+        if (CollectionUtils.isNotEmpty(userInfos)){
+            UserInfo userInfo = userInfos.get(0);
+            userInfo.setImage(form.getImage());
+            userInfoMapper.updateByPrimaryKeySelective(userInfo);
+        }
         return form.getImage();
     }
 
@@ -184,5 +195,10 @@ public class UserService implements IUserService {
         }
         adminUser.setPassword(shiroConfigure.encryptPassword(passwdUpdateForm.getNewPassword()));
         this.userMapper.updateByPrimaryKeySelective(adminUser);
+    }
+
+    @Override
+    public List<User> selectAll() {
+        return userMapper.selectByExample(new UserExample());
     }
 }

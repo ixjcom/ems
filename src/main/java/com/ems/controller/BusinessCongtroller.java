@@ -2,9 +2,11 @@ package com.ems.controller;
 
 
 import com.ems.dal.example.Business;
+import com.ems.dal.example.User;
 import com.ems.from.BusinessSearchForm;
 import com.ems.mode.ConsoleResultModel;
 import com.ems.service.IBusinessService;
+import com.ems.service.IUserService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
@@ -23,10 +25,14 @@ public class BusinessCongtroller {
     @Resource
     private IBusinessService businessService;
 
+    @Resource
+    private IUserService userService;
+
     @RequestMapping("/to-list")
     public String toList(Model model) throws Exception
     {
-      
+        List<User> users = userService.selectAll();
+        model.addAttribute("users",users);
         return "Business";
     }
 

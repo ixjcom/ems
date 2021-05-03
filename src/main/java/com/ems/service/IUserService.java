@@ -28,4 +28,6 @@ public interface IUserService {
     public User getCurrentUser();
 
     String updateImage(UserSearchForm form);
+
+    List<User> selectAll();
 }

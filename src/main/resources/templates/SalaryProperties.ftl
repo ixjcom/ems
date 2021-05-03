@@ -19,85 +19,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form id="UserSearchForm" method="post" class="form-horizontal">
-                        <input type="hidden" name="pageNum" id="pageNo" value="1">
-                        <input type="hidden" name="pageSize" id="pageSize" value="10">
-                        <div class="form-group">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-sm-6 control-label">id：</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="id" class="form-control" placeholder="请输入id">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-sm-6 control-label">用户名：</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="userName" class="form-control" placeholder="请输入用户名">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-sm-6 control-label">手机号：</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="mobil" class="form-control" placeholder="请输入手机号">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">创建时间：</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" id="startCreateTime" name="startCreateTime" value=""
-                                               class="form-control" placeholder="">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" id="endCreateTime" name="endCreateTime" value=""
-                                               class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">更新时间：</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" id="startUpdateTime" name="startUpdateTime" value=""
-                                               class="form-control" placeholder="">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" id="endUpdateTime" name="endUpdateTime" value=""
-                                               class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="hr-line-dashed"></div>
-                        <div class="form-group">
-                            <div class="col-sm-4 col-sm-offset-2">
-                                <button id="UserBtnSearch" class="btn btn-primary" type="button">搜索</button>
-                                <button id="UserBtnCancel" class="btn btn-white" type="button">清除</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-content">
-                    <@sec.any name="USER_ACCOUNT_ADD">
+                    <@sec.any name="SAYARY_PROPERTIES_ADD">
                         <div class="row">
                             <div class="col-sm-3">
                                 <button type="button" class="btn btn-success " id="addUser">
@@ -111,11 +33,11 @@
                             <thead>
                             <tr>
                                 <th>编号</th>
-                                <th>用户名</th>
-                                <th>手机号</th>
+                                <th>角色</th>
+                                <th>底薪</th>
                                 <th>创建时间</th>
                                 <th>修改时间</th>
-                                <@sec.any name="USER_ACCOUNT_DELETE,USER_ACCOUNT_UPDATE">
+                                <@sec.any name="SAYARY_PROPERTIES_DELETE,SAYARY_PROPERTIES_UPDATE">
                                     <th>操作</th>
                                 </@sec.any>
                             </tr>
@@ -148,16 +70,20 @@
                 <form id="UserDetailForm" method="post" class="form-horizontal">
                     <input type="hidden" name="id" id="saveId">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">用户名:</label>
+                        <label class="col-sm-2 control-label">角色:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="userName" id="saveUserName" required="" class="form-control" readonly placeholder="请输入用户名">
+                            <select name="roleId" class="form-control" id="saveRoleId">
+                                <#list roles as e>
+                                    <option value="${e.id}">${e.name}</option>
+                                </#list>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">手机号:</label>
+                        <label class="col-sm-2 control-label">底薪:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="mobil" id="saveMobil" required="" class="form-control"
-                                   placeholder="请输入手机号">
+                            <input type="text" name="salary" id="saveSalary" required="" class="form-control"
+                                   placeholder="请输入底薪">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -183,15 +109,6 @@
             <div class="modal-body">
                 <form id="UserAddForm" method="post" class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">用户名:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="userName" id="addUserName" required class="form-control"
-                                   placeholder="请输入用户名">
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">角色:</label>
                         <div class="col-sm-10">
                             <select name="roleId" class="form-control">
@@ -204,18 +121,10 @@
                     <div class="hr-line-dashed"></div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">密码:</label>
+                        <label class="col-sm-2 control-label">底薪:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="password" id="addPassword" required class="form-control"
-                                   placeholder="请输入密码">
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">手机号:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="mobil" id="addMobil" required class="form-control"
-                                   placeholder="请输入手机号">
+                            <input type="text" name="salary" required class="form-control"
+                                   placeholder="请输入底薪">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -240,17 +149,17 @@
         {#foreach $T.data.list as record}
             <tr>
                         <td>{$T.record.id}</td>
-                        <td>{$T.record.userName}</td>
-                        <td>{$T.record.mobil}</td>
+                        <td>{$T.record.roleName}</td>
+                        <td>{$T.record.salary}</td>
                         <td>{new Date($T.record.createTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
                         <td>{new Date($T.record.updateTime).Format('yyyy-MM-dd hh:mm:ss')}</td>
-                <@sec.any name="USER_ACCOUNT_DELETE,USER_ACCOUNT_UPDATE">
+                <@sec.any name="SAYARY_PROPERTIES_DELETE,SAYARY_PROPERTIES_UPDATE">
                     <td>
-                    <@sec.any name="USER_ACCOUNT_UPDATE">
+                    <@sec.any name="SAYARY_PROPERTIES_UPDATE">
                         <button type="button" primaryKeyId="{$T.record.id}"
                                 class="btn btn-primary btnUserDetail">详情</button>
                     </@sec.any>
-                        <@sec.any name="USER_ACCOUNT_DELETE">
+                        <@sec.any name="SAYARY_PROPERTIES_DELETE">
                             <button type="button" primaryKeyId="{$T.record.id}"
                                     class="btn btn-danger btnUserDelete">删除</button>
                         </@sec.any>
@@ -284,7 +193,7 @@
 <script src="/js/summernote/summernote-zh-CN.js"></script>
 <script src="/js/currencyUtil.js"></script>
 <script src="/js/page.js"></script>
-<script src="/js/UserScript.js?v=2"></script>
+<script src="/js/SalaryScript.js?v=2"></script>
 </body>
 
 </html>

@@ -62,6 +62,7 @@ public class ConfigureBeans {
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/image/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
+        filterChainDefinitionMap.put("/font/**", "anon");
         filterChainDefinitionMap.put("/upload/image/**", "anon");
 
         // 退出系统的过滤器

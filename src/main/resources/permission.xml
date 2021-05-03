@@ -17,10 +17,10 @@
 
 
 	<permission-group name="通知管理" order="3">
-		<permission id="30" name="通知管理管理" code="NOTIFY" depends=""/>
-		<permission id="31" name="通知管理管理删除" code="NOTIFY_DELETE" depends=""/>
-		<permission id="32" name="通知管理管理添加" code="NOTIFY_ADD" depends=""/>
-		<permission id="33" name="通知管理管理修改" code="NOTIFY_UPDATE" depends=""/>
+		<permission id="30" name="通知管理" code="NOTIFY" depends=""/>
+		<permission id="31" name="通知管理删除" code="NOTIFY_DELETE" depends=""/>
+		<permission id="32" name="通知管理添加" code="NOTIFY_ADD" depends=""/>
+		<permission id="33" name="通知管理修改" code="NOTIFY_UPDATE" depends=""/>
 	</permission-group>
 
 	<permission-group name="柜员信息管理" order="4">
@@ -41,5 +41,13 @@
 		<permission id="63" name="柜员业务管理修改" code="USER_BUSINESS_UPDATE" depends=""/>
 	</permission-group>
 
+	<permission-group name="薪水管理" order="7">
+		<permission id="70" name="薪水管理" code="SALARY_MANAGERENT" depends=""/>
+		<permission id="71" name="薪水配置" code="SAYARY_PROPERTIES" depends=""/>
+		<permission id="72" name="薪水配置添加" code="SAYARY_PROPERTIES_ADD" depends=""/>
+		<permission id="73" name="薪水配置删除" code="SAYARY_PROPERTIES_DELETE" depends=""/>
+		<permission id="74" name="薪水配置修改" code="SAYARY_PROPERTIES_UPDATE" depends=""/>
+		<permission id="75" name="薪水查询" code="SAYARY_SELECT" depends=""/>
+	</permission-group>
 
 </permissions>

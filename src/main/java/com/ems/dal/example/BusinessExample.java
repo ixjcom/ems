@@ -1,6 +1,7 @@
 package com.ems.dal.example;
 
 import com.ems.dal.Limit;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -246,52 +247,52 @@ public class BusinessExample {
             return (Criteria) this;
         }
 
-        public Criteria andFractionEqualTo(Integer value) {
+        public Criteria andFractionEqualTo(BigDecimal value) {
             addCriterion("fraction =", value, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionNotEqualTo(Integer value) {
+        public Criteria andFractionNotEqualTo(BigDecimal value) {
             addCriterion("fraction <>", value, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionGreaterThan(Integer value) {
+        public Criteria andFractionGreaterThan(BigDecimal value) {
             addCriterion("fraction >", value, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFractionGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("fraction >=", value, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionLessThan(Integer value) {
+        public Criteria andFractionLessThan(BigDecimal value) {
             addCriterion("fraction <", value, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionLessThanOrEqualTo(Integer value) {
+        public Criteria andFractionLessThanOrEqualTo(BigDecimal value) {
             addCriterion("fraction <=", value, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionIn(List<Integer> values) {
+        public Criteria andFractionIn(List<BigDecimal> values) {
             addCriterion("fraction in", values, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionNotIn(List<Integer> values) {
+        public Criteria andFractionNotIn(List<BigDecimal> values) {
             addCriterion("fraction not in", values, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionBetween(Integer value1, Integer value2) {
+        public Criteria andFractionBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("fraction between", value1, value2, "fraction");
             return (Criteria) this;
         }
 
-        public Criteria andFractionNotBetween(Integer value1, Integer value2) {
+        public Criteria andFractionNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("fraction not between", value1, value2, "fraction");
             return (Criteria) this;
         }

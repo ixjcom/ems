@@ -16,6 +16,8 @@ public class UserInfo implements Serializable {
 
     private Date updateTime;
 
+    private String image;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -64,5 +66,13 @@ public class UserInfo implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

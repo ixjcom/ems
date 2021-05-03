@@ -51,7 +51,6 @@ public class FreeMarkerConfigurate {
 
         freemarker.template.Configuration configuration = freeMarkerConfigurer.createConfiguration();
         configuration.setSharedVariable("shiro", new ShiroTags());//shiro标签
-        configuration.addAutoInclude("/macros/security.ftl");
         configuration.addAutoImport("s", "/macros/mvc.ftl");
         configuration.addAutoImport("sec", "/macros/sec.ftl");
         freeMarkerConfigurer.setConfiguration(configuration);
