@@ -17,7 +17,7 @@
             <i class="layui-icon layui-timeline-axis"></i>
             <div class="layui-timeline-content layui-text">
                 <h3 class="layui-timeline-title">${e.releaseTime?string("yyyy年MM月dd日 HH:mm:ss")}</h3>
-                <fieldset class="layui-elem-field">
+                <fieldset class="layui-elem-field" style="border-color: #bb2424">
                     <legend>${e.title}</legend>
                     <div class="layui-field-box">
                         ${e.content}

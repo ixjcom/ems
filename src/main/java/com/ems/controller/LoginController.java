@@ -37,7 +37,7 @@ public class LoginController {
 
 			return "redirect:/index";
 		} catch (Exception e) {
-			e.printStackTrace();
+  			e.printStackTrace();
 			model.addAttribute("errorInfo", e.getMessage());
 			return "login";
 		}

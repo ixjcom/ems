@@ -183,7 +183,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">用户编号:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="userId" id="addUserId" required class="form-control" placeholder="请输入用户编号">
+                            
                             <select  name="userId" id="addUserId" class="form-control">
                                 <#list users as e>
                                     <option value="${e.id}">${e.userName}</option>

@@ -77,7 +77,8 @@ public class SalarySelectContoller {
                     Integer effectiveDay = endDay-startDay;
                     Salary salary = salaries.get(0);
                     Business business = businesses.get(0);
-                    BigDecimal bigDecimal = business.getFraction().multiply(salary.getSalary()).multiply(new BigDecimal(effectiveDay)).divide(new BigDecimal(10*day),2,BigDecimal.ROUND_HALF_UP);
+                    BigDecimal bigDecimal = business.getFraction().multiply(salary.getSalary()).multiply(new BigDecimal(effectiveDay)).
+                            divide(new BigDecimal(10*day),2,BigDecimal.ROUND_HALF_UP);
                     string = String.valueOf(bigDecimal.doubleValue());
                 }
             }

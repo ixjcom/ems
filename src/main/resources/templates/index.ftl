@@ -10,6 +10,15 @@
     <link href="/css/dropzone/dropzone.css" rel="stylesheet">
     <link href="/css/sweetalert/sweetalert.css" rel="stylesheet">
     <link rel="shortcut icon" href="/image/favicon.ico">
+    <style>
+        .J_menuTab{
+            background-color: black;
+            font-size: 20px;
+        }
+        li{
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
 <div id="wrapper">
